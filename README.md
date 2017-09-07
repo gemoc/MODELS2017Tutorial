@@ -25,7 +25,8 @@ During this tutorial, the participants will extend a given finite state machine 
   - [2.2 Adding new concepts to your language](#22-adding-new-concepts-to-your-language)
   - [2.3 Completing the dynamic semantics](#23-completing-the-dynamic-semantics)
   - [2.4 Defining concrete syntax with Sirius](#24-defining-concrete-syntax-with-sirius)
-- [Part 3. Wrap-up and discussion](#part-3-wrap-up-and-discussion)
+- [Part 3. Building a simple finite state machine language for specifying your component behavior](#part-2-building-a-simple-finite-state-machine-language-for-specifying-your-component-behavior)
+- [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
 
 
 
@@ -237,7 +238,8 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 :no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/solution), if you had any problems with recreating the new syntax elements, please download it, clear your language workbench workspace and import these projects. Then run the modeling workbench on top of these projects.
 
 
+## Part 3. TODO
 
-## Part 3. Wrap-up and discussion
+## Part 4. Wrap-up and discussion
 
 See slides.
