@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.sample.legacyfsm.xsfsm.trace/src" modelPluginID="org.gemoc.sample.legacyfsm.xsfsm.trace" modelName="FsmTrace" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="8.0" copyrightFields="false" importOrganizing="true">
+  <foreignModel>platform:/resource/org.gemoc.sample.legacyfsm.xsfsm.trace/model/fsmTrace.ecore</foreignModel>
+  <genPackages prefix="FsmTrace" disposableProviderFactory="true">
+    <ecorePackage href="fsmTrace.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="fsmTrace.ecore#//SpecificTrace"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_AssignValueAction_Execute_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_DecreaseValueAction_Execute_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_EqualNumberGuard_Holds_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_GreaterThanNumberGuard_Holds_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_Guard_Holds_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_IncreaseValueAction_Execute_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_LessThanNumberGuard_Holds_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_NumberGuard_Holds_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_StateMachine_AssignInitialValues_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_StateMachine_Step_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/Fsm_Transition_Fire_Sequence"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//SpecificTrace/statesTrace"/>
+      </genFeatures>
+    </genClasses>
+    <nestedGenPackages prefix="Steps" disposableProviderFactory="true">
+      <ecorePackage href="fsmTrace.ecore#//Steps"/>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_AssignValueAction_Execute"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_AssignValueAction_Execute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_DecreaseValueAction_Execute"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_DecreaseValueAction_Execute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_EqualNumberGuard_Holds"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_EqualNumberGuard_Holds/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_GreaterThanNumberGuard_Holds"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_GreaterThanNumberGuard_Holds/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_Guard_Holds"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_Guard_Holds/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_IncreaseValueAction_Execute"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_IncreaseValueAction_Execute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_LessThanNumberGuard_Holds"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_LessThanNumberGuard_Holds/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_NumberGuard_Holds"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_NumberGuard_Holds/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_StateMachine_AssignInitialValues"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_StateMachine_AssignInitialValues/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_StateMachine_Step"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_StateMachine_Step/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_StateMachine_Step_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_StateMachine_Step_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_Transition_Fire"/>
+        <genOperations>
+          <ecoreOperation href="fsmTrace.ecore#//Steps/Fsm_Transition_Fire/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_Transition_Fire_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/Fsm_Transition_Fire_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//Steps/RootImplicitStep"/>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="fsmTrace.ecore#//Steps/SpecificStep"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//Steps/SpecificStep/endingState"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//Steps/SpecificStep/startingState"/>
+        </genFeatures>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="States" disposableProviderFactory="true">
+      <ecorePackage href="fsmTrace.ecore#//States"/>
+      <genClasses>
+        <ecoreClass href="fsmTrace.ecore#//States/State"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//States/State/endedSteps"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//States/State/startedSteps"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="fsmTrace.ecore#//States/Value"/>
+        <genFeatures property="Readonly" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="fsmTrace.ecore#//States/Value/statesNoOpposite"/>
+        </genFeatures>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+  <usedGenPackages href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
+  <usedGenPackages href="../../org.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.genmodel#//fsm"/>
+</genmodel:GenModel>

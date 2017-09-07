@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fsm:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fsm="http://www.gemoc.org/legacyfsm/fsm" name="HeatingController" initialState="//@ownedStates.0">
+  <ownedStates name="Start" outgoingTransitions="//@ownedTransitions.3 //@ownedTransitions.0" incomingTransitions="//@ownedTransitions.2 //@ownedTransitions.5"/>
+  <ownedStates name="Heating" outgoingTransitions="//@ownedTransitions.1 //@ownedTransitions.2" incomingTransitions="//@ownedTransitions.0 //@ownedTransitions.1"/>
+  <ownedStates name="Cooling" outgoingTransitions="//@ownedTransitions.4 //@ownedTransitions.5" incomingTransitions="//@ownedTransitions.3 //@ownedTransitions.4"/>
+  <ownedTransitions name="Start_to_Heating" source="//@ownedStates.0" target="//@ownedStates.1">
+    <guard xsi:type="fsm:LessThanNumberGuard" value="21" source="//@variables.0"/>
+  </ownedTransitions>
+  <ownedTransitions name="Heating_to_Heating" source="//@ownedStates.1" target="//@ownedStates.1">
+    <guard xsi:type="fsm:LessThanNumberGuard" value="21" source="//@variables.0"/>
+    <action xsi:type="fsm:IncreaseValueAction" target="//@variables.0" stepValue="2"/>
+  </ownedTransitions>
+  <ownedTransitions name="Heating_to_Start" source="//@ownedStates.1" target="//@ownedStates.0">
+    <guard xsi:type="fsm:GreaterThanNumberGuard" value="20" source="//@variables.0"/>
+  </ownedTransitions>
+  <ownedTransitions name="Start_to_Cooling" source="//@ownedStates.0" target="//@ownedStates.2">
+    <guard xsi:type="fsm:GreaterThanNumberGuard" value="24" source="//@variables.0"/>
+  </ownedTransitions>
+  <ownedTransitions name="Cooling_to_Cooling" source="//@ownedStates.2" target="//@ownedStates.2">
+    <guard xsi:type="fsm:GreaterThanNumberGuard" value="24" source="//@variables.0"/>
+    <action xsi:type="fsm:DecreaseValueAction" target="//@variables.0" stepValue="1"/>
+  </ownedTransitions>
+  <ownedTransitions name="Cooling_to_Start" source="//@ownedStates.2" target="//@ownedStates.0">
+    <guard xsi:type="fsm:LessThanNumberGuard" value="25" source="//@variables.0"/>
+  </ownedTransitions>
+  <variables xsi:type="fsm:NumberVariable" name="temperature" initialValue="17"/>
+</fsm:StateMachine>
