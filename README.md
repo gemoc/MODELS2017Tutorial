@@ -19,14 +19,14 @@ During this tutorial, the participants will extend a given finite state machine 
 
 ## Program
 
-- [Part 1. General introduction](#part-1-general-introduction)
-- [Part 2. Building a simple finite state machine language for specifying your component behavior](#part-2-building-a-simple-finite-state-machine-language-for-specifying-your-component-behavior)
+- (30min) [Part 1. General introduction](#part-1-general-introduction)
+- (1h) [Part 2. Building a simple finite state machine language for XXXX](#part-2-building-a-simple-finite-state-machine-language-for-xxxx)
   - [2.1 Running the FSM example](#21-running-the-fsm-example)
   - [2.2 Adding new concepts to your language](#22-adding-new-concepts-to-your-language)
   - [2.3 Completing the dynamic semantics](#23-completing-the-dynamic-semantics)
   - [2.4 Defining concrete syntax with Sirius](#24-defining-concrete-syntax-with-sirius)
-- [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
-- [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
+- (1h) [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
+- (30min) [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
 
 
 
