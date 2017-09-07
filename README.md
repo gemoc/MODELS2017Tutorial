@@ -238,7 +238,7 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 :no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/solution), if you had any problems with recreating the new syntax elements, please download it, clear your language workbench workspace and import these projects. Then run the modeling workbench on top of these projects.
 
 
-## Part 3. TODO
+## Part 3. Complementing your finite state machine language with a formal concurrency model
 
 ## Part 4. Wrap-up and discussion
 
