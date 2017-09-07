@@ -25,7 +25,7 @@ During this tutorial, the participants will extend a given finite state machine 
   - [2.2 Adding new concepts to your language](#22-adding-new-concepts-to-your-language)
   - [2.3 Completing the dynamic semantics](#23-completing-the-dynamic-semantics)
   - [2.4 Defining concrete syntax with Sirius](#24-defining-concrete-syntax-with-sirius)
-- [Part 3. Building a simple finite state machine language for specifying your component behavior](#part-2-building-a-simple-finite-state-machine-language-for-specifying-your-component-behavior)
+- [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
 - [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
 
 
