@@ -23,7 +23,7 @@ During this tutorial, the participants will extend a given finite state machine 
 - (1h) [Part 2. Building a simple finite state machine language for XXXX](#part-2-building-a-simple-finite-state-machine-language-for-xxxx)
   - [2.1 Running the FSM example](#21-running-the-fsm-example)
   - [2.2 Adding new concepts to your language](#22-adding-new-concepts-to-your-language)
-  - [2.3 Completing the dynamic semantics](#23-completing-the-dynamic-semantics)
+  - [2.3 Complementing the dynamic semantics](#23-complementing-the-dynamic-semantics)
   - [2.4 Defining concrete syntax with Sirius](#24-defining-concrete-syntax-with-sirius)
 - (1h) [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
 - (30min) [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
@@ -124,6 +124,8 @@ Just open your FSM metamodel (in project *org.gemoc.sample.legacyfsm.fsm.model*)
 
 ![](figs/22-generate-all.png)
 
+** mettre juste une note **
+
 #### Adding OCL constraints
 
 :no_entry: The result of the previous step is available from the [folder 2.2-ocl](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.2-ocl). Please download it if you encountered problems in adding the new concepts to the FSM metamodel.
@@ -145,7 +147,7 @@ After creating the *invariant* for the *State* concept, start the modeling workb
 
 
 
-### 2.3 Completing the dynamic semantics
+### 2.3 Complementing the dynamic semantics
 
 :no_entry: For temporal constraints, we provide an implementation of the FSM dynamic semantics. We suggest, to restart from the FSM version in the [folder 2.3](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.3-execution). Prior to that, delete all projects from your workspace (or switch to another workspace). 
 
@@ -239,6 +241,8 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
+
+
 
 ## Part 4. Wrap-up and discussion
 
