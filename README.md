@@ -9,7 +9,7 @@ This tutorial provides a practical approach for developing and integrating vario
 
 ## Scope
 
-During this tutorial, the participants will extend a given finite state machine DSL in terms of syntax and semantics using the GEMOC Studio language workbench.
+During this tutorial, the participants will extend a given finite state machine DSL in terms of syntax and semantics using the language workbench of the GEMOC Studio.
 
 
 ## Legend
