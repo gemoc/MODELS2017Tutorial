@@ -242,7 +242,7 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
 
-
+TODO
 
 ## Part 4. Wrap-up and discussion
 
