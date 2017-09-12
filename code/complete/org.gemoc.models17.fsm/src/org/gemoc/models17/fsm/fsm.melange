@@ -1,6 +1,6 @@
 package org.gemoc.models17.fsm
 
-language MyFSM {
+language XFSM {
 	syntax "platform:/resource/org.gemoc.models17.fsm.model/model/model.ecore"
 	with org.gemoc.models17.fsm.semantics.model.aspects.SystemAspect
 	with org.gemoc.models17.fsm.semantics.model.aspects.BufferAspect

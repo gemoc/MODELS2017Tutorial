@@ -22,7 +22,7 @@ class SystemAspect {
 	
 	@Step
 	@InitializeModel
-	def public void initialize(){
+	def public void initialize(EList<String> p){
 		println("init")
 		for(FSM sm : _self.ownedFsms){
 			sm.initializeFSM()
