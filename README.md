@@ -241,8 +241,45 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
+### Introduction
 
-TODO
+In the previous parts you defined an operational semantics for our little communicating FSM language. Based on that you were able to simulate and debug the models that conform this language.
+If you have a careful look at the given semantics, you can see that the call to the *run()* of each FSM depends on the order the FSMs are stored in the *ownedFsms* collection. This mean that we restricted the semantics to be sequential and in this specific order. However, as soon as a FSM can read in its input buffer, it can be ran; possibly concurrently with other FSMs. In this section we will replace the *main()* method of our operational semantics to specify the concurrency model of our language.
+
+### Changing the language specification from sequential to concurrent
+The first step consists in changing the nature of the language project from sequential to concurrent:
+- right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Remove Sequential xDSML Project Nature'
+- right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
+
+Behind the scene, the GEMOC studio is creating new artifacts and dependencies to deal with the concurrent execution engine. Please respect the order of the two previous actions to avoid a conflict between the two natures.
+
+### Creation of the DSE and MoCCML mapping project
+The second step consists in using the wizards to create a project dedicated to the specification of Domain Specific Events (DSE) and the way they are constrained each other.
+
+- right click on the fsm.melange file, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
+
+A pop-up will open and ask you to configure the project:
+- Choose the language to be equipped by a concurrent specification (you should have only one, XFSM)
+- Choose the project name, default proposition is fine.
+- in the three fields:
+	- Choose the XFSM.ecore file by browsing in the first field.
+	- Choose the root of the language (i.e., Model::System') in the second field by browsing.
+	- Choose the name of the file in which DSE and MoCCML mapping will be specified in the third field (e.g., xFSM)
+
+At this point it creates the new project and complete the *melange* file witht the location of the so called ECL file (For Event Constraint Language). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
+
+### Modification of the ECL file
+
+the ECL file follows the same format and syntax than OCL files.
+It starts with the import of the metamodel on with the concurrency semantics must be given.
+
+Then 2 specific imports are added (*ECLImport*). They are used to import MoCC specific constraint to be used in the ECL mapping. As we will see later, new constraints can be defined to fit the DSML concurrency semantics. For now, we will use the ones predefined in the CCSL librairies. These librairies contains, amongst some others, the following constraints:
+- relation Precedes: e1 precedes e2 means that the ith occurrence of e1 arrives before the ith of e2
+![](http://timesquare.inria.fr/screenshots/tutorials/precedes.jpeg)
+- relation Coincides: e1 coincides with e2 means that the ith occurrence of e1 arrives synchronously with the ith of e2
+- relation Excludes: e1 excludes with e2 means that none of the occurrences of e1 arrives synchronously with one of e2
+- expression DelayedFor: res = e1 DelayedFor N on e2 means that for each occurrences of e1 between two occurrences of e2, there is an occurrence of res after N occurrences of e2
+
 
 ## Part 4. Wrap-up and discussion
 
