@@ -274,11 +274,10 @@ the ECL file follows the same format and syntax than OCL files.
 It starts with the import of the metamodel on with the concurrency semantics must be given.
 
 Then 2 specific imports are added (*ECLImport*). They are used to import MoCC specific constraint to be used in the ECL mapping. As we will see later, new constraints can be defined to fit the DSML concurrency semantics. For now, we will use the ones predefined in the CCSL librairies. These librairies contains, amongst some others, the following constraints:
-- Precedes:
-- Coincides:
-- Excludes:
-- DelayedFor
-- ???
+- Precedes: e1 precedes e2 means that the ith occurrence of e1 arrives before the ith of e2
+- Coincides: e1 coincides with e2 means that the ith occurrence of e1 arrives synchronously with the ith of e2
+- Excludes: e1 excludes with e2 means that none of the occurrences of e1 arrives synchronously with one of e2
+- DelayedFor: res = e1 DelayedFor N on e2 means that for each occurrences of e1 between two occurrences of e2, there is an occurrence of res after N occurrences of e2
 
 
 ## Part 4. Wrap-up and discussion
