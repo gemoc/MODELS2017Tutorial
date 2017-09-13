@@ -258,6 +258,19 @@ The second step consists in using the wizards to create a project dedicated to t
 
 - right click on the fsm.melange file, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
 
+A pop-up will open and ask you to configure the project:
+- Choose the language to be equipped by a concurrent specification (you should have only one, XFSM)
+- Choose the project name, default proposition is fine.
+- in the three fields:
+	- Choose the XFSM.ecore file by browsing in the first field.
+	- Choose the root of the language (i.e., Model::System') in the second field by browsing.
+	- Choose the name of the file in which DSE and MoCCML mapping will be specified in the third field (e.g., xFSM)
+
+At this point it creates the new project and complete the *melange* file witht the location of the so called ECL file (For Event Constraint Language). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
+
+### Modification of the ECL file
+
+TODO: explain the different imports and sum up the "built-in" constraints
 
 ## Part 4. Wrap-up and discussion
 
