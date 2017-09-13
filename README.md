@@ -270,7 +270,16 @@ At this point it creates the new project and complete the *melange* file witht t
 
 ### Modification of the ECL file
 
-TODO: explain the different imports and sum up the "built-in" constraints
+the ECL file follows the same format and syntax than OCL files.
+It starts with the import of the metamodel on with the concurrency semantics must be given.
+
+Then 2 specific imports are added (*ECLImport*). They are used to import MoCC specific constraint to be used in the ECL mapping. As we will see later, new constraints can be defined to fit the DSML concurrency semantics. For now, we will use the ones predefined in the CCSL librairies. These librairies contains, amongst some others, the following constraints:
+- Precedes:
+- Coincides:
+- Excludes:
+- DelayedFor
+- ???
+
 
 ## Part 4. Wrap-up and discussion
 
