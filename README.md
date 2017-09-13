@@ -280,7 +280,7 @@ Then 2 specific imports are added (*ECLImport*). They are used to import MoCC sp
 ![](figs/concurrency_Coincides.jpeg)
 - relation Excludes: e1 excludes with e2 means that none of the occurrences of e1 arrives synchronously with one of e2
 ![](figs/concurrency_Excludes.png)
-- expression DelayedFor: res = e1 DelayedFor N on e2 means that for each occurrences of e1 between two occurrences of e2, there is an occurrence of res after N occurrences of e2. A special case is res = e1 delayedFor N on e1. In this case the N first occurrences of e1 are removed in res.\n
+- expression DelayedFor: res = e1 DelayedFor N on e2 means that for each occurrences of e1 between two occurrences of e2, there is an occurrence of res after N occurrences of e2. A special case is res = e1 delayedFor N on e1. In this case the N first occurrences of e1 are removed in res.    
 ![](figs/concurrency_DelayedFor.png)
 
 
