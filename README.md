@@ -241,8 +241,23 @@ From here, you can run the launch configuration */launch/HeatingController.launc
 
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
+### Introduction
 
-TODO
+In the previous parts you defined an operational semantics for our little communicating FSM language. Based on that you were able to simulate and debug the models that conform this language.
+If you have a careful look at the given semantics, you can see that the call to the *run()* of each FSM depends on the order the FSMs are stored in the *ownedFsms* collection. This mean that we restricted the semantics to be sequential and in this specific order. However, as soon as a FSM can read in its input buffer, it can be ran; possibly concurrently with other FSMs. In this section we will replace the *main()* method of our operational semantics to specify the concurrency model of our language.
+
+### Changing the language specification from sequential to concurrent
+The first step consists in changing the nature of the language project from sequential to concurrent:
+- right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Remove Sequential xDSML Project Nature'
+- right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
+
+Behind the scene, the GEMOC studio is creating new artifacts and dependencies to deal with the concurrent execution engine. Please respect the order of the two previous actions to avoid a conflict between the two natures.
+
+### Creation of the DSE and MoCCML mapping project
+The second step consists in using the wizards to create a project dedicated to the specification of Domain Specific Events (DSE) and the way they are constrained each other.
+
+- right click on the fsm.melange file, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
+
 
 ## Part 4. Wrap-up and discussion
 
