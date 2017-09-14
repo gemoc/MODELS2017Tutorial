@@ -4,13 +4,11 @@
 * [Program](#program)
 * [Materials](#materials)
 
-
 This tutorial provides a practical approach for developing and integrating various Domain-Specific (modeling) Languages (DSLs) used in the development of modern complex software-intensive systems, with the main objective to support abstraction and separation of concerns. The tutorial leverages on the tooling provided by the GEMOC studio to present the various facilities offered by the Eclipse platform (incl., EMF/Ecore, Xtext, Sirius) and introduces the advanced features to extend a DSL with a well-defined execution semantics, possibly including formal concurrency constraints and coordination patterns. From such a specification, we demonstrate the ability of the studio to automatically support model execution, graphical animation, omniscient debugging, concurrency analysis and concurrent execution of heterogeneous models. The tutorial is composed of both lectures and hands-on sessions. Lectures introduce the foundations of language engineering, and give the basics of the GEMOC studio and the underlying concepts. Hands-on sessions allow participants to experiment on representative concrete use cases.
 
 ## Scope
 
 During this tutorial, the participants will extend a given finite state machine DSL in terms of syntax and semantics using the language workbench of the GEMOC Studio.
-
 
 ## Legend
 
@@ -19,16 +17,14 @@ During this tutorial, the participants will extend a given finite state machine 
 
 ## Program
 
-- (30min) [Part 1. General introduction](#part-1-general-introduction)
-- (1h) [Part 2. Building a simple finite state machine language for XXXX](#part-2-building-a-simple-finite-state-machine-language-for-xxxx)
+- [Part 1. General introduction](#part-1-general-introduction)
+- [Part 2. Building a simple finite state machine language for XXXX](#part-2-building-a-simple-finite-state-machine-language-for-xxxx)
   - [2.1 Running the FSM example](#21-running-the-fsm-example)
   - [2.2 Adding new concepts to your language](#22-adding-new-concepts-to-your-language)
   - [2.3 Complementing the dynamic semantics](#23-complementing-the-dynamic-semantics)
   - [2.4 Defining concrete syntax with Sirius](#24-defining-concrete-syntax-with-sirius)
-- (1h) [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
-- (30min) [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
-
-
+- [Part 3. Complementing your finite state machine language with a formal concurrency model](#part-3-complementing-your-finite-state-machine-language-with-a-formal-concurrency-model)
+- [Part 4. Wrap-up and discussion](#part-4-wrap-up-and-discussion)
 
 ## Materials
 
@@ -45,9 +41,7 @@ This part introduces the structure and goals of the tutorial. Moverover it cover
 
 ## Part 2. Language engineering
 
-In this part, you will - due to temporal restrictions - extend the metamodel and semantics of a language for finite state machines (FSM). In the first step, you will load the projects implementing the language into the language workbench, start the modeling workbench, and execute/debug an FSM. Afterwards, you will extend the metamodel of the FSM language with three new concepts related to FSM variables and their usage. Then you will add behavior of these new concepts to the language, and add a new concrete (graphical) syntax to them.
-
-
+In this part, you will implement from-scratch a new modeling language that support the behavioral definition of a system in terms of a set of simplified Finite State Machines (FSM), communicating each others through buffers. In the first step, you will use the language workbench to define the abstract and concrete syntaxes, as well as the behavioral semantics. Then you will launch the modeling workbench to use your new modeling language to edit models, and then execute, animate and debug them.
 
 ### 2.1 Running the FSM example
 
