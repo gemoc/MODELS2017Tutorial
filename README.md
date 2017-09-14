@@ -32,19 +32,16 @@ During this tutorial, the participants will extend a given finite state machine 
 
 ## Materials
 
-+ Use either the latest [GEMOC Studio](http://gemoc.org/studio.html) and with a [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and clone the [tutorial's repository](https://github.com/gemoc/ICSA2017Tutorial.git) or use [prepared virtualbox machine](http://gemoc.irisa.fr/pub/studio/vm/Lubuntu%2064%20GEMOC%202.3.0.a.ova).
-+ The slides for the tutorials are available on [here](https://github.com/gemoc/ICSA2017Tutorial/blob/master/slides/tutorial-mcgill-slides.pptx). Additional slides are available [here](https://github.com/gemoc/ICSA2017Tutorial/tree/master/slides/additional).
++ Use the latest [GEMOC Studio](http://gemoc.org/studio.html) with a [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), and clone the [tutorial's repository](https://github.com/gemoc/MODELS2017Tutorial.git).
++ The slides for the tutorials are available [here](https://github.com/gemoc/MODELS2017Tutorial/blob/master/slides/tutorial-slides.pptx). Note that additional slides are also available [here](https://github.com/gemoc/MODELS2017Tutorial/tree/master/slides/additional) for further information.
 + Most of the documentation on the GEMOC approch is available [here](http://gemoc.org/gemoc-studio/publish/guide/html_single/Guide.html).
 
-You can refer to the documentation at any time.
-
+You can refer to the documentation about the GEMOC studio at any time. Note also that we will rely on various tools from the EMF ecosystem (e.g., EcoreTools, Sirius...), and we will refer to their respective documentations accordingly. 
 
 
 ## Part 1. General introduction
 
-This part introduces the structure and goals of the tutorial. Moverover it covers an introduction to software language engineering, GEMOC Studio and the GEMOC initiative. The slides are available [here](https://github.com/gemoc/ICSA2017Tutorial/blob/master/slides/tutorial-mcgill-slides.pptx).
-
-
+This part introduces the structure and goals of the tutorial. Moverover it covers an introduction to software language engineering, and GEMOC (incl. the initiative and the studio). The slides are available [here](https://github.com/gemoc/MODELS2017Tutorial/blob/master/slides/tutorial-slides.pptx).
 
 ## Part 2. Language engineering
 
@@ -128,7 +125,7 @@ Just open your FSM metamodel (in project *org.gemoc.sample.legacyfsm.fsm.model*)
 
 #### Adding OCL constraints
 
-:no_entry: The result of the previous step is available from the [folder 2.2-ocl](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.2-ocl). Please download it if you encountered problems in adding the new concepts to the FSM metamodel.
+:no_entry: The result of the previous step is available from the [folder 2.2-ocl](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/2.2-ocl). Please download it if you encountered problems in adding the new concepts to the FSM metamodel.
 
 In our language, you can define your static semantics (i.e., well-formedness rules) using OCL. Let us try to define that a state cannot have two outgoing transitions without a guard. To this effect, open the metamodel with the *OCLinEcore editor* via right clicking it and selecting that editor. Here, you can create an `invariant` for the concept `State` that restricts its outgoing transitions.
 
@@ -149,7 +146,7 @@ After creating the *invariant* for the *State* concept, start the modeling workb
 
 ### 2.3 Complementing the dynamic semantics
 
-:no_entry: For temporal constraints, we provide an implementation of the FSM dynamic semantics. We suggest, to restart from the FSM version in the [folder 2.3](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.3-execution). Prior to that, delete all projects from your workspace (or switch to another workspace). 
+:no_entry: For temporal constraints, we provide an implementation of the FSM dynamic semantics. We suggest, to restart from the FSM version in the [folder 2.3](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/2.3-execution). Prior to that, delete all projects from your workspace (or switch to another workspace). 
 
 The operational semantics of FSM are defined in the file tfsmAspects.xtend of project org.gemoc.sample.legacyfsm.fsm.k3dsa. This file which employs [Kermeta 3 (K3)](http://www.kermeta.org) and the [Interpreter Design Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern) to describe the dynamic behavior of FM models and its contents is woven into the metamodel of your executable DSL (i.e., XSFSM, not FSM!). In this file, you have aspects for all classes of your metamodel. Some of these aspects use annotations to define execution functions or entry points. 
 
@@ -175,7 +172,7 @@ Note how Melange has woven the methods defined in the aspects into the XSFSM met
 
 #### Testing the execution of the model with its new semantics
 
-:no_entry: The solution of the previous step is available from the folder [2.4-sirius-start](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.4-sirius-start). Please download it and let's run the modeling workbench on top of these projects.
+:no_entry: The solution of the previous step is available from the folder [2.4-sirius-start](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/2.4-sirius-start). Please download it and let's run the modeling workbench on top of these projects.
 
 Create a FSM model with two steps and one transition. Create a variable `a` with `1` as an initial step. Create a guard associated to the transition that checks whether `a == 1`.  Create an action that assigns `2` to the variable `a`.
 
@@ -198,7 +195,7 @@ Let's debug/animate this model!
 
 In this step, you will define the graphical concrete syntax for a specific modeling element of the FSM language using [Sirius](https://www.eclipse.org/sirius/doc/specifier/diagrams/Diagrams.html). 
 
-:no_entry: For temporal restrictions, we have prepared the state of FSM so far in the folder [2.4-sirius-start](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/2.4-sirius-start). Please remove your projects from the workspace (or switch to another workspace) and import the projects from this folder.  
+:no_entry: For temporal restrictions, we have prepared the state of FSM so far in the folder [2.4-sirius-start](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/2.4-sirius-start). Please remove your projects from the workspace (or switch to another workspace) and import the projects from this folder.  
 
 As you have added variables, guard, and actions to the metamodel, these should be rendered also. The following figures shows the intended result in action. Transitions display guards and actions, the FSM has a container displaying the current variables values, and the currently touched elements are highlighted during execution.
 
@@ -231,13 +228,13 @@ The label rendering information on variables with its properties:
 
 The label receives its text from the registered services. Depending on the view, the services render either the variables' initial values (default view) or their current values (debugging view). Please have a look at the classes `FSMServices` and `XFSMServices` and investigate how this is achieved.
 
-Let us import an example model from the project [ICSA2017Example](https://github.com/awortmann/xmontiarc/tree/icsa2017tutorial/ICSA2017-FSM-Example) to debug a model with your new representation. In this project, open the file */models/HeatingController.aird* and in the project explorer, open the HeatingController diagram. See below:
+Let us import an example model from the project [MODELS2017Example](https://github.com/awortmann/xmontiarc/tree/icsa2017tutorial/MODELS2017-FSM-Example) to debug a model with your new representation. In this project, open the file */models/HeatingController.aird* and in the project explorer, open the HeatingController diagram. See below:
 
 ![](figs/24-modeling-workbench.png)
 
 From here, you can run the launch configuration */launch/HeatingController.launch*, as a **debug configuration** and start debugging your model. From the variables view (top right), you can adjust the current temperature to observe different FSM behavior. 
 
-:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/ICSA2017Tutorial/tree/master/code/solution), if you had any problems with recreating the new syntax elements, please download it, clear your language workbench workspace and import these projects. Then run the modeling workbench on top of these projects.
+:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/solution), if you had any problems with recreating the new syntax elements, please download it, clear your language workbench workspace and import these projects. Then run the modeling workbench on top of these projects.
 
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
