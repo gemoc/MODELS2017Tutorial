@@ -14,6 +14,7 @@ During this tutorial, the participants will extend a given finite state machine 
 
 * :warning: Read carefully, tricky details follow.
 * ​:no_entry: Breaking changes. You should download a new version of the language under development for temporal reasons. You may proceed with you local changes, but we might not be able to support its evolution due to the short time frame of the tutorial. 
+* :bulb: some tips to make your live easier :)
 
 ## Program
 
@@ -238,6 +239,7 @@ In the previous parts you defined an operational semantics for our little commun
 If you have a careful look at the given semantics, you can see that the call to the *run()* of each FSM depends on the order the FSMs are stored in the *ownedFsms* collection. This mean that we restricted the semantics to be sequential and in this specific order. However, as soon as a FSM can read in its input buffer, it can be ran; possibly concurrently with other FSMs. In this section we will replace the *main()* method of our operational semantics to specify the concurrency model of our language.
 
 ### Changing the language specification from sequential to concurrent
+​:no_entry: take care to make these actions in the correct order to avoid both having both natures and corrupt the plugin configuration
 The first step consists in changing the nature of the language project from sequential to concurrent:
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Remove Sequential xDSML Project Nature'
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
@@ -258,6 +260,10 @@ A pop-up will open and ask you to configure the project:
 	- Choose the name of the file in which DSE and MoCCML mapping will be specified in the third field (e.g., xFSM)
 
 At this point it creates the new project and complete the *melange* file with the location of the so called ECL file (For Event Constraint Language). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
+
+
+​:no_entry: if you experimented problems with the previous steps, you can import the projects in this archive into your workspace:
+**TODO**
 
 ### Modification of the ECL file
 
@@ -282,14 +288,12 @@ note that the function to call is optional (if no action must be called when the
 
 **TODO:** According to the remark considering the previously defined *main* function, try to define the appropriate DSE for the tutorial
 
-[//]: <> commented solution
-[//]: # In this tutorial, lets consider
-[//]: #
-[//]: # > **context** _YouMetaClass_  
-[//]: # >&nbsp;&nbsp;&nbsp;&nbsp; **def** : _theDSEName_ : **Event** = self._theFuntionToCall()_
-[//]: #
-[//]: #
 
+_SOLUTION WILL APPEAR HERE_
+<!--
+> **context** FSM  
+>&nbsp;&nbsp;&nbsp;&nbsp; **def** : runIt : **Event**  = self.run()  
+-->
 
 Now that the DSEs are defined, because no constraints between them have been defined, they are independent and can occurs opportunistically at any time. If you want to test such behavior, start the modeling workbench and before to start the debug of your executable model, you must create a concurrent Debug Configuration like the following one:
 
@@ -320,7 +324,36 @@ In order to constrain the DSE to make the concurrency model appropriate, we need
 
 ![](figs/concurrency_DelayedFor.png)
 
-According to this, try to specu=ify the constraints between the DSEs so that a FSM can run only when a data have been written first in its inputBuffer (or if some initial data were already there).
+**TODO:** According to this, try to specify the constraints between the DSEs so that a FSM can run only when a data have been written first in its inputBuffer (or if some initial data were already there).
+
+The syntax is making use of OCL invariants and the syntax is the following:
+
+> **context** _YouMetaClass_  
+>&nbsp;&nbsp; **inv** : _InvariantName_ :  
+>&nbsp;&nbsp;&nbsp;&nbsp; -- any guards (i.e., boolExpr implies..) and internal definitons (i.e.,  let..in)  
+>&nbsp;&nbsp;&nbsp;&nbsp; -- note that this is a place where Event Expressions can be used  
+>&nbsp;&nbsp;&nbsp;&nbsp; -- e.g., **let** eventName : **Event** = **Expression** _expressionName_(param1, param2, ...) **in**  
+>&nbsp;&nbsp;&nbsp;&nbsp; **Relation** _relationName_(param1, param2, ...)  
+
+:bulb: At any time, after saving your ECL file, you can relaunch you model debug to test the new concurrency model (without the need to restart the modeling workbench
+
+_SOLUTION WILL APPEAR HERE_
+<!--
+> **context** Buffer:  
+>&nbsp;&nbsp; **inv** : WriteBufferReadNoInitialValue:   
+>&nbsp;&nbsp; (self.initialValue.size() = null **or** self.initialValue->size() = 0) **implies**  
+>&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
+-->
+<!--
+>&nbsp;&nbsp; **inv** : WriteBufferReadWithInitialValue:  
+>&nbsp;&nbsp; (self.initialValue.size() > 0) **implies**  
+>&nbsp;&nbsp;&nbsp;&nbsp;**let** initialSize : **Integer** = self.initialValue.tokenize(',')->size().oclAsType(Integer) **in**  
+>&nbsp;&nbsp;&nbsp;&nbsp;**let** allReadsButInitialOnes : **Event** = **Expression** DelayFor(self.outgoingFSM.runIt, self.outgoingFSM.runIt, initialSize) **in**  
+>&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
+-->
+
+​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in this archive into your workspace:
+**TODO**
 
 ## Part 4. Wrap-up and discussion
 
