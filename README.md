@@ -203,7 +203,7 @@ In order to constrain the DSE to make the concurrency model appropriate, we need
 The syntax is making use of OCL invariants and the syntax is the following:
 
 > **context** _YourMetaClass_  
->&nbsp;&nbsp; **inv** : _InvariantName_ :  
+>&nbsp;&nbsp; **inv** _InvariantName_ :  
 >&nbsp;&nbsp;&nbsp;&nbsp; -- any guards (i.e., boolExpr implies..) and internal definitons (i.e.,  let..in)  
 >&nbsp;&nbsp;&nbsp;&nbsp; -- note that this is a place where Event Expressions can be used  
 >&nbsp;&nbsp;&nbsp;&nbsp; -- e.g., **let** eventName : **Event** = **Expression** _expressionName_(param1, param2, ...) **in**  

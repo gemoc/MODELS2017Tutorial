@@ -15,7 +15,7 @@
         <edgeMappings name="EventTransition" sourceMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']" targetMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']" targetFinderExpression="[self.tgt/]" sourceFinderExpression="[self.src/]" domainClass="Transition" useDomainElement="true">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.getLabel()">
+            <centerLabelStyleDescription showIcon="false" labelExpression="[self.trigger+'/'+self.action/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -81,24 +81,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="fsm.FSM" referenceName="ownedFsms">
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="FSM" referenceName="ownedFsms">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['fsm'+container.oclAsType(System).ownedFsms->size()/]"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createBuffer" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='inputDependencies'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='outputDependencies']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Buffer" referenceName="ownedBuffers" variableName="aBuffer">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source/]">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="outputBuffer" valueExpression="[aBuffer/]"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[target/]">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="inputBuffer" valueExpression="[aBuffer/]"/>
-                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -109,6 +93,33 @@
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="model.State" referenceName="ownedStates">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['S'+container.ownedStates->size()/]"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Buffer" nodeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="model.Buffer" referenceName="ownedBuffers">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['buffer'+container.oclAsType(System).ownedBuffers->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateInputDep" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='inputDependencies']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="inputBuffer" valueExpression="[target/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateOutputDep" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='outputDependencies']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="outputBuffer" valueExpression="[target/]"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -168,13 +179,13 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" referenceName="borderColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='hasBeenAnimated']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" attributeName="labelExpression" value="service:self.getBufferLabel"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" attributeName="labelExpression" value="[self.oclAsType(Buffer).currentValues/]"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" attributeName="labelSize" value="[12/]"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" referenceName="color">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             </featureCustomizations>
           </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentState">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(State) and self.oclAsType(State).fsm.currentState = self/]">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']/@conditionnalStyles.0/@style //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']/@style" referenceName="color">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </featureCustomizations>
@@ -182,7 +193,6 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.xfsm.design.services.XFSMServices"/>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.xfsm.design.services.XfsmAnimatorServices"/>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.xfsm.design.services.XfsmDebugServices"/>
   </ownedViewpoints>
