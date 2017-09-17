@@ -48,7 +48,7 @@ In this part, you will implement from-scratch a new modeling language that suppo
 
 - Open your GEMOC Studio
 - Go to a new workspace.
-- Go to File -> import -> Git -> Projects from Git (import **all projects from /code/languagewb/* **)
+- Go to File -> import -> Git -> Projects from Git (import ** all projects from /code/languagewb/* **)
 
 This produces the general structure of a xDSML workspace, which comprises the projects for all the different parts of an executable DSML (projects org.gemoc.models17.fsm.*):
 
@@ -66,7 +66,7 @@ At this step, you must generate the following artefact:
 
 From your first instance of Eclipse (i.e. the language workbench), you must lunch a new Eclipse instance (i.e. the modeling workbench) where the plugins developped in the workspace of the language workbench will be deployed: Run -> Run Configurations -> Eclipse Application (a launch configuration is provided to you in the project of the Github repository)
 
-In the modeling workbench, you must import the example model provided for the tutorial, from [MODELS2017Example](https://github.com/gemoc/MODELS2017Tutorial/blob/master/code/modelingwb/exampleModels) (**/code/modelingwb/exampleModels/* **). In the project, open the file */models/testModels.aird* and in the project explorer, open the corresping diagram. See below:
+In the modeling workbench, you must import the example model provided for the tutorial, from [MODELS2017Example](https://github.com/gemoc/MODELS2017Tutorial/blob/master/code/modelingwb/exampleModels) (** /code/modelingwb/exampleModels/* **). In the project, open the file */models/testModels.aird* and in the project explorer, open the corresping diagram. See below:
 
 ![](figs/24-modeling-workbench.png)
 
