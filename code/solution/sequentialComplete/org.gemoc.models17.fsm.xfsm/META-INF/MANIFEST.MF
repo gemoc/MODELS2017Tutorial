@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.gemoc.models17.fsm.xfsm;singleton:=true
+Bundle-Version: 0.1.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ fr.inria.diverse.k3.al.annotationprocessor.plugin,
+ fr.inria.diverse.melange,
+ org.eclipse.xtext.xbase.lib,
+ com.google.guava,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore.xmi
+Bundle-ActivationPolicy: lazy
+Export-Package: org.gemoc.models17.fsm.xfsm.aspects,
+ org.gemoc.models17.fsm.xfsm.model,
+ org.gemoc.models17.fsm.xfsm.model.impl,
+ org.gemoc.models17.fsm.xfsm.model.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

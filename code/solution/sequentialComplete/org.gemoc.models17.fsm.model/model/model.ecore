@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://www.gemoc.org/fsm" nsPrefix="org.gemoc.models17.fsm.model">
+  <eClassifiers xsi:type="ecore:EClass" name="FSM">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedStates" upperBound="-1" eType="//State" containment="true" eOpposite="//State/fsm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTransitions" upperBound="-1" eType="//Transition" containment="true" eOpposite="//Transition/fsm"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputBuffer" eType="//Buffer" eOpposite="//Buffer/outgoingFSM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputBuffer" eType="//Buffer" eOpposite="//Buffer/incomingFSM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialState" eType="//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1" eType="//Transition" eOpposite="//Transition/tgt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1" eType="//Transition" eOpposite="//Transition/src"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fsm" eType="//FSM" eOpposite="//FSM/ownedStates"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFSM" eType="//FSM" eOpposite="//FSM/inputBuffer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingFSM" eType="//FSM" eOpposite="//FSM/outputBuffer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tgt" eType="//State" eOpposite="//State/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" eType="//State" eOpposite="//State/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fsm" eType="//FSM" eOpposite="//FSM/ownedTransitions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedFsms" upperBound="-1" eType="//FSM" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedBuffers" upperBound="-1" eType="//Buffer" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

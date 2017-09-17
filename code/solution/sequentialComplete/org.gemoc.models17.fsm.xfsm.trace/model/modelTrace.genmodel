@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.models17.fsm.xfsm.trace/src" modelPluginID="org.gemoc.models17.fsm.xfsm.trace" modelName="ModelTrace" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="8.0" copyrightFields="false" importOrganizing="true">
+  <foreignModel>platform:/resource/org.gemoc.models17.fsm.xfsm.trace/model/modelTrace.ecore</foreignModel>
+  <genPackages prefix="ModelTrace" disposableProviderFactory="true">
+    <ecorePackage href="modelTrace.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="modelTrace.ecore#//SpecificTrace"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/Model_FSM_Run_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/Model_State_Step_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/Model_Transition_Fire_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/Root_Initialize_Sequence"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/model_tracedBuffers"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/model_tracedFSMs"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//SpecificTrace/statesTrace"/>
+      </genFeatures>
+    </genClasses>
+    <nestedGenPackages prefix="Steps" disposableProviderFactory="true">
+      <ecorePackage href="modelTrace.ecore#//Steps"/>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_FSM_Run"/>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//Steps/Model_FSM_Run/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_FSM_Run_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_FSM_Run_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_State_Step"/>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//Steps/Model_State_Step/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_State_Step_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_State_Step_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Model_Transition_Fire"/>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//Steps/Model_Transition_Fire/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/RootImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//Steps/Root_Initialize"/>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="modelTrace.ecore#//Steps/SpecificStep"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//Steps/SpecificStep/endingState"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//Steps/SpecificStep/startingState"/>
+        </genFeatures>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="States" disposableProviderFactory="true">
+      <ecorePackage href="modelTrace.ecore#//States"/>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/Buffer_currentValues_Value"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/Buffer_currentValues_Value/currentValues"/>
+        </genFeatures>
+        <genFeatures property="None" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/Buffer_currentValues_Value/parent"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/Buffer_currentValues_Value/states"/>
+        </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//States/Buffer_currentValues_Value/getStatesNoOpposite"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/FSM_consummedString_Value"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/FSM_consummedString_Value/consummedString"/>
+        </genFeatures>
+        <genFeatures property="None" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_consummedString_Value/parent"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_consummedString_Value/states"/>
+        </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//States/FSM_consummedString_Value/getStatesNoOpposite"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/FSM_currentState_Value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_currentState_Value/currentState"/>
+        </genFeatures>
+        <genFeatures property="None" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_currentState_Value/parent"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_currentState_Value/states"/>
+        </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//States/FSM_currentState_Value/getStatesNoOpposite"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/FSM_producedString_Value"/>
+        <genFeatures property="None" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_producedString_Value/parent"/>
+        </genFeatures>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/FSM_producedString_Value/producedString"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_producedString_Value/states"/>
+        </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//States/FSM_producedString_Value/getStatesNoOpposite"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value"/>
+        <genFeatures property="None" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/parent"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/states"/>
+        </genFeatures>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/underProcessTrigger"/>
+        </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/getStatesNoOpposite"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelTrace.ecore#//States/State"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/buffer_currentValues_Values"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/endedSteps"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_consummedString_Values"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_currentState_Values"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_producedString_Values"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_underProcessTrigger_Values"/>
+        </genFeatures>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/startedSteps"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="modelTrace.ecore#//States/Value"/>
+        <genFeatures property="Readonly" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/Value/statesNoOpposite"/>
+        </genFeatures>
+      </genClasses>
+      <nestedGenPackages prefix="Model" disposableProviderFactory="true">
+        <ecorePackage href="modelTrace.ecore#//States/model"/>
+        <genClasses>
+          <ecoreClass href="modelTrace.ecore#//States/model/TracedBuffer"/>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedBuffer/currentValuesSequence"/>
+          </genFeatures>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedBuffer/originalObject"/>
+          </genFeatures>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelTrace.ecore#//States/model/TracedFSM"/>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/consummedStringSequence"/>
+          </genFeatures>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/currentStateSequence"/>
+          </genFeatures>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/originalObject"/>
+          </genFeatures>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/producedStringSequence"/>
+          </genFeatures>
+          <genFeatures property="None" children="true" createChild="true">
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/underProcessTriggerSequence"/>
+          </genFeatures>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+  <usedGenPackages href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
+  <usedGenPackages href="../../org.gemoc.models17.fsm.xfsm/model/XFSM.genmodel#//model"/>
+</genmodel:GenModel>
