@@ -1,5 +1,4 @@
 Bundle-SymbolicName: org.gemoc.models17.fsm; singleton:=true
-Export-Package: xfsm.xdsml.api.impl,org.gemoc.models17.fsm.xfsmmt.model,org.gemoc.models17.fsm.xfsmmt.model.util,org.gemoc.models17.fsm.xfsmmt.model.impl,org.gemoc.models17.fsm.xfsm.adapters.xfsmmt.model,org.gemoc.models17.fsm.xfsm.adapters.xfsmmt,org.gemoc.models17.fsm
 Bundle-Name: org.gemoc.models17.fsm
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -45,9 +44,7 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  
  org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;bundle-version="0.0.0";visibility:="reexport",
  
- org.gemoc.models17.fsm,
- 
- org.gemoc.models17.fsm.xfsm
+ org.gemoc.models17.fsm
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Manifest-Version: 1.0

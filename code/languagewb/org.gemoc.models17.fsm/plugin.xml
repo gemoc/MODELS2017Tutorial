@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.gemoc.models17.fsm.XFSM" xdsmlFilePath="/org.gemoc.models17.fsm/src/org/gemoc/models17/fsm/fsm.melange" />
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.gemoc.models17.fsm.XFSM" xdsmlFilePath="/org.gemoc.models17.fsm/bin/org/gemoc/models17/fsm/fsm.melange" />
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.gemoc.models17.fsm.XFSMMT" uri="http://org.gemoc.models17.fsm.xfsmmt/" />
