@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.gemoc.models17.fsm.model:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.gemoc.models17.fsm.model="http://org.gemoc.models17.fsm.xfsm/model/">
+  <ownedFsms name="fsm1" inputBuffer="//@ownedBuffers.3" outputBuffer="//@ownedBuffers.1" initialState="//@ownedFsms.0/@ownedStates.0">
+    <ownedStates incoming="//@ownedFsms.0/@ownedTransitions.1" name="s1" outgoing="//@ownedFsms.0/@ownedTransitions.0"/>
+    <ownedStates incoming="//@ownedFsms.0/@ownedTransitions.0" name="s2" outgoing="//@ownedFsms.0/@ownedTransitions.1"/>
+    <ownedTransitions tgt="//@ownedFsms.0/@ownedStates.1" name="ts1" src="//@ownedFsms.0/@ownedStates.0" trigger="co" action="o"/>
+    <ownedTransitions tgt="//@ownedFsms.0/@ownedStates.0" name="s2_to_s1" src="//@ownedFsms.0/@ownedStates.1" trigger="gemoc" action="s"/>
+  </ownedFsms>
+  <ownedFsms name="fsm2" inputBuffer="//@ownedBuffers.1" outputBuffer="//@ownedBuffers.2" initialState="//@ownedFsms.1/@ownedStates.0">
+    <ownedStates incoming="//@ownedFsms.1/@ownedTransitions.0" name="sa" outgoing="//@ownedFsms.1/@ownedTransitions.0"/>
+    <ownedTransitions tgt="//@ownedFsms.1/@ownedStates.0" name="sa_to_sa" src="//@ownedFsms.1/@ownedStates.0" trigger="me" action="de"/>
+  </ownedFsms>
+  <ownedFsms name="fsm3" inputBuffer="//@ownedBuffers.2" outputBuffer="//@ownedBuffers.0" initialState="//@ownedFsms.2/@ownedStates.0">
+    <ownedStates incoming="//@ownedFsms.2/@ownedTransitions.0" name="s1" outgoing="//@ownedFsms.2/@ownedTransitions.1"/>
+    <ownedStates incoming="//@ownedFsms.2/@ownedTransitions.1" name="s2" outgoing="//@ownedFsms.2/@ownedTransitions.0"/>
+    <ownedTransitions tgt="//@ownedFsms.2/@ownedStates.0" name="ts1" src="//@ownedFsms.2/@ownedStates.1" trigger="!!!" action="7"/>
+    <ownedTransitions tgt="//@ownedFsms.2/@ownedStates.1" name="s2_to_s1" src="//@ownedFsms.2/@ownedStates.0" trigger="tutorial" action="1"/>
+  </ownedFsms>
+  <ownedFsms name="fsm0" inputBuffer="//@ownedBuffers.0" outputBuffer="//@ownedBuffers.3" initialState="//@ownedFsms.3/@ownedStates.0">
+    <ownedStates incoming="//@ownedFsms.3/@ownedTransitions.1" name="s1" outgoing="//@ownedFsms.3/@ownedTransitions.0"/>
+    <ownedStates incoming="//@ownedFsms.3/@ownedTransitions.0" name="s2" outgoing="//@ownedFsms.3/@ownedTransitions.1"/>
+    <ownedTransitions tgt="//@ownedFsms.3/@ownedStates.1" name="ts1" src="//@ownedFsms.3/@ownedStates.0" trigger="wel" action="M"/>
+    <ownedTransitions tgt="//@ownedFsms.3/@ownedStates.0" name="s2_to_s1" src="//@ownedFsms.3/@ownedStates.1" trigger="at" action="l"/>
+  </ownedFsms>
+  <ownedBuffers initialValue="wel,co,me,at,gemoc,tutorial,!!!" outgoingFSM="//@ownedFsms.3" incomingFSM="//@ownedFsms.2" name="b0"/>
+  <ownedBuffers outgoingFSM="//@ownedFsms.1" incomingFSM="//@ownedFsms.0" name="b2"/>
+  <ownedBuffers outgoingFSM="//@ownedFsms.2" incomingFSM="//@ownedFsms.1" name="b3"/>
+  <ownedBuffers outgoingFSM="//@ownedFsms.0" incomingFSM="//@ownedFsms.3" name="b1"/>
+</org.gemoc.models17.fsm.model:System>
