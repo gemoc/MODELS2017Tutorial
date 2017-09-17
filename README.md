@@ -329,8 +329,7 @@ The syntax is making use of OCL invariants and the syntax is the following:
 >&nbsp;&nbsp;&nbsp;&nbsp; -- e.g., **let** eventName : **Event** = **Expression** _expressionName_(param1, param2, ...) **in**  
 >&nbsp;&nbsp;&nbsp;&nbsp; **Relation** _relationName_(param1, param2, ...)  
 
-note that the function to call is optional (if no action must be called when the event occurs). 
-
+At any time, after saving your ECL file, you can relaunch you model debug to test the new concurrency model (without the need to restart the modeling workbench
 
 _SOLUTION WILL APPEAR HERE_
 <!--
