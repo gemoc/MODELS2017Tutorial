@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,14 +44,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class Buffer_currentValues_ValueImpl extends MinimalEObjectImpl.Container implements Buffer_currentValues_Value {
 	/**
-	 * The cached value of the '{@link #getCurrentValues() <em>Current Values</em>}' attribute list.
+	 * The default value of the '{@link #getCurrentValues() <em>Current Values</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCurrentValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> currentValues;
+	protected static final String CURRENT_VALUES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentValues() <em>Current Values</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentValues = CURRENT_VALUES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
@@ -97,11 +106,20 @@ public class Buffer_currentValues_ValueImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getCurrentValues() {
-		if (currentValues == null) {
-			currentValues = new EDataTypeEList<String>(String.class, this, StatesPackage.BUFFER_CURRENT_VALUES_VALUE__CURRENT_VALUES);
-		}
+	public String getCurrentValues() {
 		return currentValues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentValues(String newCurrentValues) {
+		String oldCurrentValues = currentValues;
+		currentValues = newCurrentValues;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatesPackage.BUFFER_CURRENT_VALUES_VALUE__CURRENT_VALUES, oldCurrentValues, currentValues));
 	}
 
 	/**
@@ -236,8 +254,7 @@ public class Buffer_currentValues_ValueImpl extends MinimalEObjectImpl.Container
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__CURRENT_VALUES:
-				getCurrentValues().clear();
-				getCurrentValues().addAll((Collection<? extends String>)newValue);
+				setCurrentValues((String)newValue);
 				return;
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__PARENT:
 				setParent((TracedBuffer)newValue);
@@ -259,7 +276,7 @@ public class Buffer_currentValues_ValueImpl extends MinimalEObjectImpl.Container
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__CURRENT_VALUES:
-				getCurrentValues().clear();
+				setCurrentValues(CURRENT_VALUES_EDEFAULT);
 				return;
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__PARENT:
 				setParent((TracedBuffer)null);
@@ -282,7 +299,7 @@ public class Buffer_currentValues_ValueImpl extends MinimalEObjectImpl.Container
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__STATES_NO_OPPOSITE:
 				return !getStatesNoOpposite().isEmpty();
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__CURRENT_VALUES:
-				return currentValues != null && !currentValues.isEmpty();
+				return CURRENT_VALUES_EDEFAULT == null ? currentValues != null : !CURRENT_VALUES_EDEFAULT.equals(currentValues);
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__PARENT:
 				return getParent() != null;
 			case StatesPackage.BUFFER_CURRENT_VALUES_VALUE__STATES:

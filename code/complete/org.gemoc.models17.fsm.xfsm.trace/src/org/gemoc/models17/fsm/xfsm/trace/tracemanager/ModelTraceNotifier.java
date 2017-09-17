@@ -54,7 +54,7 @@ public class ModelTraceNotifier implements ITraceNotifier {
 						newDimensions.add(((modelTrace.States.model.TracedFSM) o).getConsummedStringSequence());
 						newDimensions.add(((modelTrace.States.model.TracedFSM) o).getCurrentStateSequence());
 						newDimensions.add(((modelTrace.States.model.TracedFSM) o).getProducedStringSequence());
-						newDimensions.add(((modelTrace.States.model.TracedFSM) o).getUnprocessedStringSequence());
+						newDimensions.add(((modelTrace.States.model.TracedFSM) o).getUnderProcessTriggerSequence());
 					}
 				}
 			});

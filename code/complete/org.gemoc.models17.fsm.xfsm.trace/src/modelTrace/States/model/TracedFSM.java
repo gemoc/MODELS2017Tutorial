@@ -5,7 +5,7 @@ package modelTrace.States.model;
 import modelTrace.States.FSM_consummedString_Value;
 import modelTrace.States.FSM_currentState_Value;
 import modelTrace.States.FSM_producedString_Value;
-import modelTrace.States.FSM_unprocessedString_Value;
+import modelTrace.States.FSM_underProcessTrigger_Value;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -26,7 +26,7 @@ import org.gemoc.models17.fsm.xfsm.model.FSM;
  *   <li>{@link modelTrace.States.model.TracedFSM#getCurrentStateSequence <em>Current State Sequence</em>}</li>
  *   <li>{@link modelTrace.States.model.TracedFSM#getOriginalObject <em>Original Object</em>}</li>
  *   <li>{@link modelTrace.States.model.TracedFSM#getProducedStringSequence <em>Produced String Sequence</em>}</li>
- *   <li>{@link modelTrace.States.model.TracedFSM#getUnprocessedStringSequence <em>Unprocessed String Sequence</em>}</li>
+ *   <li>{@link modelTrace.States.model.TracedFSM#getUnderProcessTriggerSequence <em>Under Process Trigger Sequence</em>}</li>
  * </ul>
  *
  * @see modelTrace.States.model.ModelPackage#getTracedFSM()
@@ -115,21 +115,21 @@ public interface TracedFSM extends EObject {
 	EList<FSM_producedString_Value> getProducedStringSequence();
 
 	/**
-	 * Returns the value of the '<em><b>Unprocessed String Sequence</b></em>' containment reference list.
-	 * The list contents are of type {@link modelTrace.States.FSM_unprocessedString_Value}.
-	 * It is bidirectional and its opposite is '{@link modelTrace.States.FSM_unprocessedString_Value#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Under Process Trigger Sequence</b></em>' containment reference list.
+	 * The list contents are of type {@link modelTrace.States.FSM_underProcessTrigger_Value}.
+	 * It is bidirectional and its opposite is '{@link modelTrace.States.FSM_underProcessTrigger_Value#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unprocessed String Sequence</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Under Process Trigger Sequence</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unprocessed String Sequence</em>' containment reference list.
-	 * @see modelTrace.States.model.ModelPackage#getTracedFSM_UnprocessedStringSequence()
-	 * @see modelTrace.States.FSM_unprocessedString_Value#getParent
+	 * @return the value of the '<em>Under Process Trigger Sequence</em>' containment reference list.
+	 * @see modelTrace.States.model.ModelPackage#getTracedFSM_UnderProcessTriggerSequence()
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value#getParent
 	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
-	EList<FSM_unprocessedString_Value> getUnprocessedStringSequence();
+	EList<FSM_underProcessTrigger_Value> getUnderProcessTriggerSequence();
 
 } // TracedFSM

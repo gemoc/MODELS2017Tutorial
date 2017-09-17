@@ -2,24 +2,17 @@
  */
 package model.impl;
 
-import java.util.Collection;
-
 import model.Buffer;
 import model.FSM;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,14 +32,24 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  */
 public class BufferImpl extends MinimalEObjectImpl.Container implements Buffer {
 	/**
-	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute list.
+	 * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInitialValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> initialValue;
+	protected static final String INITIAL_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String initialValue = INITIAL_VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutgoingFSM() <em>Outgoing FSM</em>}' reference.
@@ -112,11 +115,20 @@ public class BufferImpl extends MinimalEObjectImpl.Container implements Buffer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getInitialValue() {
-		if (initialValue == null) {
-			initialValue = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.BUFFER__INITIAL_VALUE);
-		}
+	public String getInitialValue() {
 		return initialValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialValue(String newInitialValue) {
+		String oldInitialValue = initialValue;
+		initialValue = newInitialValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BUFFER__INITIAL_VALUE, oldInitialValue, initialValue));
 	}
 
 	/**
@@ -328,8 +340,7 @@ public class BufferImpl extends MinimalEObjectImpl.Container implements Buffer {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.BUFFER__INITIAL_VALUE:
-				getInitialValue().clear();
-				getInitialValue().addAll((Collection<? extends String>)newValue);
+				setInitialValue((String)newValue);
 				return;
 			case ModelPackage.BUFFER__OUTGOING_FSM:
 				setOutgoingFSM((FSM)newValue);
@@ -353,7 +364,7 @@ public class BufferImpl extends MinimalEObjectImpl.Container implements Buffer {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModelPackage.BUFFER__INITIAL_VALUE:
-				getInitialValue().clear();
+				setInitialValue(INITIAL_VALUE_EDEFAULT);
 				return;
 			case ModelPackage.BUFFER__OUTGOING_FSM:
 				setOutgoingFSM((FSM)null);
@@ -377,7 +388,7 @@ public class BufferImpl extends MinimalEObjectImpl.Container implements Buffer {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ModelPackage.BUFFER__INITIAL_VALUE:
-				return initialValue != null && !initialValue.isEmpty();
+				return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals(initialValue);
 			case ModelPackage.BUFFER__OUTGOING_FSM:
 				return outgoingFSM != null;
 			case ModelPackage.BUFFER__INCOMING_FSM:

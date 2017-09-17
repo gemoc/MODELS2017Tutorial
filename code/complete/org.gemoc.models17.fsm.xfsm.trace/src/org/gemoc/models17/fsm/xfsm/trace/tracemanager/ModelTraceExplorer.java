@@ -67,7 +67,7 @@ public class ModelTraceExplorer implements ITraceExplorer {
 			result.add(tracedObject.getConsummedStringSequence());
 			result.add(tracedObject.getCurrentStateSequence());
 			result.add(tracedObject.getProducedStringSequence());
-			result.add(tracedObject.getUnprocessedStringSequence());
+			result.add(tracedObject.getUnderProcessTriggerSequence());
 		}
 		return result;
 	}
@@ -333,10 +333,13 @@ public class ModelTraceExplorer implements ITraceExplorer {
 				if (value.getParent() instanceof modelTrace.States.model.TracedBuffer) {
 					modelTrace.States.model.TracedBuffer parent_cast = (modelTrace.States.model.TracedBuffer) value
 							.getParent();
-					org.gemoc.models17.fsm.xfsm.model.Buffer originalObject = (org.gemoc.models17.fsm.xfsm.model.Buffer) parent_cast
-							.getOriginalObject();
-					originalObject.getCurrentValues().clear();
-					originalObject.getCurrentValues().addAll(value.getCurrentValues());
+					java.lang.String toset = value.getCurrentValues();
+					java.lang.String current = ((org.gemoc.models17.fsm.xfsm.model.Buffer) parent_cast
+							.getOriginalObject()).getCurrentValues();
+					if (current != toset) {
+						((org.gemoc.models17.fsm.xfsm.model.Buffer) parent_cast.getOriginalObject())
+								.setCurrentValues((java.lang.String) toset);
+					}
 				}
 			}
 			for (modelTrace.States.FSM_producedString_Value value : stateToGo.getFSM_producedString_Values()) {
@@ -352,16 +355,17 @@ public class ModelTraceExplorer implements ITraceExplorer {
 					}
 				}
 			}
-			for (modelTrace.States.FSM_unprocessedString_Value value : stateToGo.getFSM_unprocessedString_Values()) {
+			for (modelTrace.States.FSM_underProcessTrigger_Value value : stateToGo
+					.getFSM_underProcessTrigger_Values()) {
 				if (value.getParent() instanceof modelTrace.States.model.TracedFSM) {
 					modelTrace.States.model.TracedFSM parent_cast = (modelTrace.States.model.TracedFSM) value
 							.getParent();
-					java.lang.String toset = value.getUnprocessedString();
+					java.lang.String toset = value.getUnderProcessTrigger();
 					java.lang.String current = ((org.gemoc.models17.fsm.xfsm.model.FSM) parent_cast.getOriginalObject())
-							.getUnprocessedString();
+							.getUnderProcessTrigger();
 					if (current != toset) {
 						((org.gemoc.models17.fsm.xfsm.model.FSM) parent_cast.getOriginalObject())
-								.setUnprocessedString((java.lang.String) toset);
+								.setUnderProcessTrigger((java.lang.String) toset);
 					}
 				}
 			}

@@ -58,13 +58,13 @@ public interface StatesFactory extends EFactory {
 	FSM_producedString_Value createFSM_producedString_Value();
 
 	/**
-	 * Returns a new object of class '<em>FSM unprocessed String Value</em>'.
+	 * Returns a new object of class '<em>FSM under Process Trigger Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>FSM unprocessed String Value</em>'.
+	 * @return a new object of class '<em>FSM under Process Trigger Value</em>'.
 	 * @generated
 	 */
-	FSM_unprocessedString_Value createFSM_unprocessedString_Value();
+	FSM_underProcessTrigger_Value createFSM_underProcessTrigger_Value();
 
 	/**
 	 * Returns a new object of class '<em>State</em>'.

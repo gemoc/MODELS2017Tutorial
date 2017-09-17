@@ -60,7 +60,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 			case StatesPackage.FSM_CONSUMMED_STRING_VALUE: return createFSM_consummedString_Value();
 			case StatesPackage.FSM_CURRENT_STATE_VALUE: return createFSM_currentState_Value();
 			case StatesPackage.FSM_PRODUCED_STRING_VALUE: return createFSM_producedString_Value();
-			case StatesPackage.FSM_UNPROCESSED_STRING_VALUE: return createFSM_unprocessedString_Value();
+			case StatesPackage.FSM_UNDER_PROCESS_TRIGGER_VALUE: return createFSM_underProcessTrigger_Value();
 			case StatesPackage.STATE: return createState();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -112,9 +112,9 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FSM_unprocessedString_Value createFSM_unprocessedString_Value() {
-		FSM_unprocessedString_ValueImpl fsM_unprocessedString_Value = new FSM_unprocessedString_ValueImpl();
-		return fsM_unprocessedString_Value;
+	public FSM_underProcessTrigger_Value createFSM_underProcessTrigger_Value() {
+		FSM_underProcessTrigger_ValueImpl fsM_underProcessTrigger_Value = new FSM_underProcessTrigger_ValueImpl();
+		return fsM_underProcessTrigger_Value;
 	}
 
 	/**

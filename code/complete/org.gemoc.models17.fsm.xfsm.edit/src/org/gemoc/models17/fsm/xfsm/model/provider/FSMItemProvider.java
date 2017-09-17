@@ -68,7 +68,7 @@ public class FSMItemProvider
 			addOutputBufferPropertyDescriptor(object);
 			addInitialStatePropertyDescriptor(object);
 			addCurrentStatePropertyDescriptor(object);
-			addUnprocessedStringPropertyDescriptor(object);
+			addUnderProcessTriggerPropertyDescriptor(object);
 			addConsummedStringPropertyDescriptor(object);
 			addProducedStringPropertyDescriptor(object);
 		}
@@ -186,19 +186,19 @@ public class FSMItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Unprocessed String feature.
+	 * This adds a property descriptor for the Under Process Trigger feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addUnprocessedStringPropertyDescriptor(Object object) {
+	protected void addUnderProcessTriggerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FSM_unprocessedString_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FSM_unprocessedString_feature", "_UI_FSM_type"),
-				 ModelPackage.Literals.FSM__UNPROCESSED_STRING,
+				 getString("_UI_FSM_underProcessTrigger_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FSM_underProcessTrigger_feature", "_UI_FSM_type"),
+				 ModelPackage.Literals.FSM__UNDER_PROCESS_TRIGGER,
 				 true,
 				 false,
 				 false,
@@ -321,7 +321,7 @@ public class FSMItemProvider
 
 		switch (notification.getFeatureID(FSM.class)) {
 			case ModelPackage.FSM__NAME:
-			case ModelPackage.FSM__UNPROCESSED_STRING:
+			case ModelPackage.FSM__UNDER_PROCESS_TRIGGER:
 			case ModelPackage.FSM__CONSUMMED_STRING:
 			case ModelPackage.FSM__PRODUCED_STRING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

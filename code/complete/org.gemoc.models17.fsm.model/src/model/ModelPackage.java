@@ -213,7 +213,7 @@ public interface ModelPackage extends EPackage {
 	int BUFFER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Initial Value</b></em>' attribute list.
+	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -536,10 +536,10 @@ public interface ModelPackage extends EPackage {
 	EClass getBuffer();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link model.Buffer#getInitialValue <em>Initial Value</em>}'.
+	 * Returns the meta object for the attribute '{@link model.Buffer#getInitialValue <em>Initial Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Initial Value</em>'.
+	 * @return the meta object for the attribute '<em>Initial Value</em>'.
 	 * @see model.Buffer#getInitialValue()
 	 * @see #getBuffer()
 	 * @generated
@@ -821,7 +821,7 @@ public interface ModelPackage extends EPackage {
 		EClass BUFFER = eINSTANCE.getBuffer();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Value</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

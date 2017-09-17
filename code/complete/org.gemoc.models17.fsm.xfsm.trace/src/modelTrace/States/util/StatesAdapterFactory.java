@@ -84,8 +84,8 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 				return createFSM_producedString_ValueAdapter();
 			}
 			@Override
-			public Adapter caseFSM_unprocessedString_Value(FSM_unprocessedString_Value object) {
-				return createFSM_unprocessedString_ValueAdapter();
+			public Adapter caseFSM_underProcessTrigger_Value(FSM_underProcessTrigger_Value object) {
+				return createFSM_underProcessTrigger_ValueAdapter();
 			}
 			@Override
 			public Adapter caseState(State object) {
@@ -172,16 +172,16 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link modelTrace.States.FSM_unprocessedString_Value <em>FSM unprocessed String Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link modelTrace.States.FSM_underProcessTrigger_Value <em>FSM under Process Trigger Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see modelTrace.States.FSM_unprocessedString_Value
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value
 	 * @generated
 	 */
-	public Adapter createFSM_unprocessedString_ValueAdapter() {
+	public Adapter createFSM_underProcessTrigger_ValueAdapter() {
 		return null;
 	}
 

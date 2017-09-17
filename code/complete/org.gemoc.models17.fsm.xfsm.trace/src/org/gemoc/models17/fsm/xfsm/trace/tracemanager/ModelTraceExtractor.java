@@ -98,7 +98,7 @@ public class ModelTraceExtractor implements ITraceExtractor {
 			result.add(tracedObject.getConsummedStringSequence());
 			result.add(tracedObject.getCurrentStateSequence());
 			result.add(tracedObject.getProducedStringSequence());
-			result.add(tracedObject.getUnprocessedStringSequence());
+			result.add(tracedObject.getUnderProcessTriggerSequence());
 		}
 		return result;
 	}

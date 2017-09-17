@@ -28,7 +28,7 @@
             id="org.gemoc.models17.fsm.xfsm.model.presentation.ModelEditorID"
             name="%_UI_ModelEditor_label"
             icon="icons/full/obj16/ModelModelFile.gif"
-            extensions="fsm"
+            extensions="xfsm"
             class="org.gemoc.models17.fsm.xfsm.model.presentation.ModelEditor"
             contributorClass="org.gemoc.models17.fsm.xfsm.model.presentation.ModelActionBarContributor">
       </editor>

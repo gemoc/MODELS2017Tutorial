@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fsm" eType="//FSM" eOpposite="//FSM/ownedStates"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Buffer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" upperBound="-1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingFSM" eType="//FSM" eOpposite="//FSM/inputBuffer"/>

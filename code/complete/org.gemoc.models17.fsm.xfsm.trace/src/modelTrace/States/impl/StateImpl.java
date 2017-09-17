@@ -8,7 +8,7 @@ import modelTrace.States.Buffer_currentValues_Value;
 import modelTrace.States.FSM_consummedString_Value;
 import modelTrace.States.FSM_currentState_Value;
 import modelTrace.States.FSM_producedString_Value;
-import modelTrace.States.FSM_unprocessedString_Value;
+import modelTrace.States.FSM_underProcessTrigger_Value;
 import modelTrace.States.State;
 import modelTrace.States.StatesPackage;
 
@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link modelTrace.States.impl.StateImpl#getFSM_consummedString_Values <em>FSM consummed String Values</em>}</li>
  *   <li>{@link modelTrace.States.impl.StateImpl#getFSM_currentState_Values <em>FSM current State Values</em>}</li>
  *   <li>{@link modelTrace.States.impl.StateImpl#getFSM_producedString_Values <em>FSM produced String Values</em>}</li>
- *   <li>{@link modelTrace.States.impl.StateImpl#getFSM_unprocessedString_Values <em>FSM unprocessed String Values</em>}</li>
+ *   <li>{@link modelTrace.States.impl.StateImpl#getFSM_underProcessTrigger_Values <em>FSM under Process Trigger Values</em>}</li>
  *   <li>{@link modelTrace.States.impl.StateImpl#getStartedSteps <em>Started Steps</em>}</li>
  * </ul>
  *
@@ -98,14 +98,14 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	protected EList<FSM_producedString_Value> fSM_producedString_Values;
 
 	/**
-	 * The cached value of the '{@link #getFSM_unprocessedString_Values() <em>FSM unprocessed String Values</em>}' reference list.
+	 * The cached value of the '{@link #getFSM_underProcessTrigger_Values() <em>FSM under Process Trigger Values</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFSM_unprocessedString_Values()
+	 * @see #getFSM_underProcessTrigger_Values()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FSM_unprocessedString_Value> fSM_unprocessedString_Values;
+	protected EList<FSM_underProcessTrigger_Value> fSM_underProcessTrigger_Values;
 
 	/**
 	 * The cached value of the '{@link #getStartedSteps() <em>Started Steps</em>}' reference list.
@@ -201,11 +201,11 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FSM_unprocessedString_Value> getFSM_unprocessedString_Values() {
-		if (fSM_unprocessedString_Values == null) {
-			fSM_unprocessedString_Values = new EObjectWithInverseResolvingEList.ManyInverse<FSM_unprocessedString_Value>(FSM_unprocessedString_Value.class, this, StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES, StatesPackage.FSM_UNPROCESSED_STRING_VALUE__STATES);
+	public EList<FSM_underProcessTrigger_Value> getFSM_underProcessTrigger_Values() {
+		if (fSM_underProcessTrigger_Values == null) {
+			fSM_underProcessTrigger_Values = new EObjectWithInverseResolvingEList.ManyInverse<FSM_underProcessTrigger_Value>(FSM_underProcessTrigger_Value.class, this, StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES, StatesPackage.FSM_UNDER_PROCESS_TRIGGER_VALUE__STATES);
 		}
-		return fSM_unprocessedString_Values;
+		return fSM_underProcessTrigger_Values;
 	}
 
 	/**
@@ -239,8 +239,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFSM_currentState_Values()).basicAdd(otherEnd, msgs);
 			case StatesPackage.STATE__FSM_PRODUCED_STRING_VALUES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFSM_producedString_Values()).basicAdd(otherEnd, msgs);
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFSM_unprocessedString_Values()).basicAdd(otherEnd, msgs);
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFSM_underProcessTrigger_Values()).basicAdd(otherEnd, msgs);
 			case StatesPackage.STATE__STARTED_STEPS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStartedSteps()).basicAdd(otherEnd, msgs);
 		}
@@ -265,8 +265,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return ((InternalEList<?>)getFSM_currentState_Values()).basicRemove(otherEnd, msgs);
 			case StatesPackage.STATE__FSM_PRODUCED_STRING_VALUES:
 				return ((InternalEList<?>)getFSM_producedString_Values()).basicRemove(otherEnd, msgs);
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				return ((InternalEList<?>)getFSM_unprocessedString_Values()).basicRemove(otherEnd, msgs);
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				return ((InternalEList<?>)getFSM_underProcessTrigger_Values()).basicRemove(otherEnd, msgs);
 			case StatesPackage.STATE__STARTED_STEPS:
 				return ((InternalEList<?>)getStartedSteps()).basicRemove(otherEnd, msgs);
 		}
@@ -291,8 +291,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return getFSM_currentState_Values();
 			case StatesPackage.STATE__FSM_PRODUCED_STRING_VALUES:
 				return getFSM_producedString_Values();
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				return getFSM_unprocessedString_Values();
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				return getFSM_underProcessTrigger_Values();
 			case StatesPackage.STATE__STARTED_STEPS:
 				return getStartedSteps();
 		}
@@ -328,9 +328,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				getFSM_producedString_Values().clear();
 				getFSM_producedString_Values().addAll((Collection<? extends FSM_producedString_Value>)newValue);
 				return;
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				getFSM_unprocessedString_Values().clear();
-				getFSM_unprocessedString_Values().addAll((Collection<? extends FSM_unprocessedString_Value>)newValue);
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				getFSM_underProcessTrigger_Values().clear();
+				getFSM_underProcessTrigger_Values().addAll((Collection<? extends FSM_underProcessTrigger_Value>)newValue);
 				return;
 			case StatesPackage.STATE__STARTED_STEPS:
 				getStartedSteps().clear();
@@ -363,8 +363,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 			case StatesPackage.STATE__FSM_PRODUCED_STRING_VALUES:
 				getFSM_producedString_Values().clear();
 				return;
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				getFSM_unprocessedString_Values().clear();
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				getFSM_underProcessTrigger_Values().clear();
 				return;
 			case StatesPackage.STATE__STARTED_STEPS:
 				getStartedSteps().clear();
@@ -391,8 +391,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 				return fSM_currentState_Values != null && !fSM_currentState_Values.isEmpty();
 			case StatesPackage.STATE__FSM_PRODUCED_STRING_VALUES:
 				return fSM_producedString_Values != null && !fSM_producedString_Values.isEmpty();
-			case StatesPackage.STATE__FSM_UNPROCESSED_STRING_VALUES:
-				return fSM_unprocessedString_Values != null && !fSM_unprocessedString_Values.isEmpty();
+			case StatesPackage.STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES:
+				return fSM_underProcessTrigger_Values != null && !fSM_underProcessTrigger_Values.isEmpty();
 			case StatesPackage.STATE__STARTED_STEPS:
 				return startedSteps != null && !startedSteps.isEmpty();
 		}

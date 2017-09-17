@@ -103,7 +103,7 @@ public interface StatesPackage extends EPackage {
 	int BUFFER_CURRENT_VALUES_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
 
 	/**
-	 * The feature id for the '<em><b>Current Values</b></em>' attribute list.
+	 * The feature id for the '<em><b>Current Values</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -304,14 +304,14 @@ public interface StatesPackage extends EPackage {
 	int FSM_PRODUCED_STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link modelTrace.States.impl.FSM_unprocessedString_ValueImpl <em>FSM unprocessed String Value</em>}' class.
+	 * The meta object id for the '{@link modelTrace.States.impl.FSM_underProcessTrigger_ValueImpl <em>FSM under Process Trigger Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see modelTrace.States.impl.FSM_unprocessedString_ValueImpl
-	 * @see modelTrace.States.impl.StatesPackageImpl#getFSM_unprocessedString_Value()
+	 * @see modelTrace.States.impl.FSM_underProcessTrigger_ValueImpl
+	 * @see modelTrace.States.impl.StatesPackageImpl#getFSM_underProcessTrigger_Value()
 	 * @generated
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE = 4;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
@@ -320,7 +320,7 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE__STATES_NO_OPPOSITE = VALUE__STATES_NO_OPPOSITE;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -329,7 +329,7 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE__PARENT = VALUE_FEATURE_COUNT + 0;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE__PARENT = VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>States</b></em>' reference list.
@@ -338,25 +338,25 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE__STATES = VALUE_FEATURE_COUNT + 1;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE__STATES = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Unprocessed String</b></em>' attribute.
+	 * The feature id for the '<em><b>Under Process Trigger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE__UNPROCESSED_STRING = VALUE_FEATURE_COUNT + 2;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE__UNDER_PROCESS_TRIGGER = VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>FSM unprocessed String Value</em>' class.
+	 * The number of structural features of the '<em>FSM under Process Trigger Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_UNPROCESSED_STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
+	int FSM_UNDER_PROCESS_TRIGGER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link modelTrace.States.impl.StateImpl <em>State</em>}' class.
@@ -414,13 +414,13 @@ public interface StatesPackage extends EPackage {
 	int STATE__FSM_PRODUCED_STRING_VALUES = 4;
 
 	/**
-	 * The feature id for the '<em><b>FSM unprocessed String Values</b></em>' reference list.
+	 * The feature id for the '<em><b>FSM under Process Trigger Values</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE__FSM_UNPROCESSED_STRING_VALUES = 5;
+	int STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Started Steps</b></em>' reference list.
@@ -452,10 +452,10 @@ public interface StatesPackage extends EPackage {
 	EClass getBuffer_currentValues_Value();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link modelTrace.States.Buffer_currentValues_Value#getCurrentValues <em>Current Values</em>}'.
+	 * Returns the meta object for the attribute '{@link modelTrace.States.Buffer_currentValues_Value#getCurrentValues <em>Current Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Current Values</em>'.
+	 * @return the meta object for the attribute '<em>Current Values</em>'.
 	 * @see modelTrace.States.Buffer_currentValues_Value#getCurrentValues()
 	 * @see #getBuffer_currentValues_Value()
 	 * @generated
@@ -614,47 +614,47 @@ public interface StatesPackage extends EPackage {
 	EReference getFSM_producedString_Value_States();
 
 	/**
-	 * Returns the meta object for class '{@link modelTrace.States.FSM_unprocessedString_Value <em>FSM unprocessed String Value</em>}'.
+	 * Returns the meta object for class '{@link modelTrace.States.FSM_underProcessTrigger_Value <em>FSM under Process Trigger Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>FSM unprocessed String Value</em>'.
-	 * @see modelTrace.States.FSM_unprocessedString_Value
+	 * @return the meta object for class '<em>FSM under Process Trigger Value</em>'.
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value
 	 * @generated
 	 */
-	EClass getFSM_unprocessedString_Value();
+	EClass getFSM_underProcessTrigger_Value();
 
 	/**
-	 * Returns the meta object for the container reference '{@link modelTrace.States.FSM_unprocessedString_Value#getParent <em>Parent</em>}'.
+	 * Returns the meta object for the container reference '{@link modelTrace.States.FSM_underProcessTrigger_Value#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see modelTrace.States.FSM_unprocessedString_Value#getParent()
-	 * @see #getFSM_unprocessedString_Value()
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value#getParent()
+	 * @see #getFSM_underProcessTrigger_Value()
 	 * @generated
 	 */
-	EReference getFSM_unprocessedString_Value_Parent();
+	EReference getFSM_underProcessTrigger_Value_Parent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link modelTrace.States.FSM_unprocessedString_Value#getStates <em>States</em>}'.
+	 * Returns the meta object for the reference list '{@link modelTrace.States.FSM_underProcessTrigger_Value#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see modelTrace.States.FSM_unprocessedString_Value#getStates()
-	 * @see #getFSM_unprocessedString_Value()
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value#getStates()
+	 * @see #getFSM_underProcessTrigger_Value()
 	 * @generated
 	 */
-	EReference getFSM_unprocessedString_Value_States();
+	EReference getFSM_underProcessTrigger_Value_States();
 
 	/**
-	 * Returns the meta object for the attribute '{@link modelTrace.States.FSM_unprocessedString_Value#getUnprocessedString <em>Unprocessed String</em>}'.
+	 * Returns the meta object for the attribute '{@link modelTrace.States.FSM_underProcessTrigger_Value#getUnderProcessTrigger <em>Under Process Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unprocessed String</em>'.
-	 * @see modelTrace.States.FSM_unprocessedString_Value#getUnprocessedString()
-	 * @see #getFSM_unprocessedString_Value()
+	 * @return the meta object for the attribute '<em>Under Process Trigger</em>'.
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value#getUnderProcessTrigger()
+	 * @see #getFSM_underProcessTrigger_Value()
 	 * @generated
 	 */
-	EAttribute getFSM_unprocessedString_Value_UnprocessedString();
+	EAttribute getFSM_underProcessTrigger_Value_UnderProcessTrigger();
 
 	/**
 	 * Returns the meta object for class '{@link modelTrace.States.State <em>State</em>}'.
@@ -722,15 +722,15 @@ public interface StatesPackage extends EPackage {
 	EReference getState_FSM_producedString_Values();
 
 	/**
-	 * Returns the meta object for the reference list '{@link modelTrace.States.State#getFSM_unprocessedString_Values <em>FSM unprocessed String Values</em>}'.
+	 * Returns the meta object for the reference list '{@link modelTrace.States.State#getFSM_underProcessTrigger_Values <em>FSM under Process Trigger Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>FSM unprocessed String Values</em>'.
-	 * @see modelTrace.States.State#getFSM_unprocessedString_Values()
+	 * @return the meta object for the reference list '<em>FSM under Process Trigger Values</em>'.
+	 * @see modelTrace.States.State#getFSM_underProcessTrigger_Values()
 	 * @see #getState()
 	 * @generated
 	 */
-	EReference getState_FSM_unprocessedString_Values();
+	EReference getState_FSM_underProcessTrigger_Values();
 
 	/**
 	 * Returns the meta object for the reference list '{@link modelTrace.States.State#getStartedSteps <em>Started Steps</em>}'.
@@ -797,7 +797,7 @@ public interface StatesPackage extends EPackage {
 		EClass BUFFER_CURRENT_VALUES_VALUE = eINSTANCE.getBuffer_currentValues_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Current Values</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Current Values</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -923,14 +923,14 @@ public interface StatesPackage extends EPackage {
 		EReference FSM_PRODUCED_STRING_VALUE__STATES = eINSTANCE.getFSM_producedString_Value_States();
 
 		/**
-		 * The meta object literal for the '{@link modelTrace.States.impl.FSM_unprocessedString_ValueImpl <em>FSM unprocessed String Value</em>}' class.
+		 * The meta object literal for the '{@link modelTrace.States.impl.FSM_underProcessTrigger_ValueImpl <em>FSM under Process Trigger Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see modelTrace.States.impl.FSM_unprocessedString_ValueImpl
-		 * @see modelTrace.States.impl.StatesPackageImpl#getFSM_unprocessedString_Value()
+		 * @see modelTrace.States.impl.FSM_underProcessTrigger_ValueImpl
+		 * @see modelTrace.States.impl.StatesPackageImpl#getFSM_underProcessTrigger_Value()
 		 * @generated
 		 */
-		EClass FSM_UNPROCESSED_STRING_VALUE = eINSTANCE.getFSM_unprocessedString_Value();
+		EClass FSM_UNDER_PROCESS_TRIGGER_VALUE = eINSTANCE.getFSM_underProcessTrigger_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -938,7 +938,7 @@ public interface StatesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FSM_UNPROCESSED_STRING_VALUE__PARENT = eINSTANCE.getFSM_unprocessedString_Value_Parent();
+		EReference FSM_UNDER_PROCESS_TRIGGER_VALUE__PARENT = eINSTANCE.getFSM_underProcessTrigger_Value_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
@@ -946,15 +946,15 @@ public interface StatesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FSM_UNPROCESSED_STRING_VALUE__STATES = eINSTANCE.getFSM_unprocessedString_Value_States();
+		EReference FSM_UNDER_PROCESS_TRIGGER_VALUE__STATES = eINSTANCE.getFSM_underProcessTrigger_Value_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Unprocessed String</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Under Process Trigger</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FSM_UNPROCESSED_STRING_VALUE__UNPROCESSED_STRING = eINSTANCE.getFSM_unprocessedString_Value_UnprocessedString();
+		EAttribute FSM_UNDER_PROCESS_TRIGGER_VALUE__UNDER_PROCESS_TRIGGER = eINSTANCE.getFSM_underProcessTrigger_Value_UnderProcessTrigger();
 
 		/**
 		 * The meta object literal for the '{@link modelTrace.States.impl.StateImpl <em>State</em>}' class.
@@ -1007,12 +1007,12 @@ public interface StatesPackage extends EPackage {
 		EReference STATE__FSM_PRODUCED_STRING_VALUES = eINSTANCE.getState_FSM_producedString_Values();
 
 		/**
-		 * The meta object literal for the '<em><b>FSM unprocessed String Values</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>FSM under Process Trigger Values</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__FSM_UNPROCESSED_STRING_VALUES = eINSTANCE.getState_FSM_unprocessedString_Values();
+		EReference STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES = eINSTANCE.getState_FSM_underProcessTrigger_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Started Steps</b></em>' reference list feature.

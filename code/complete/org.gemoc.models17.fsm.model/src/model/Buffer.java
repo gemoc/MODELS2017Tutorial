@@ -2,8 +2,6 @@
  */
 package model;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,20 +25,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Buffer extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Initial Value</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Initial Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Value</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Initial Value</em>' attribute list.
+	 * @return the value of the '<em>Initial Value</em>' attribute.
+	 * @see #setInitialValue(String)
 	 * @see model.ModelPackage#getBuffer_InitialValue()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getInitialValue();
+	String getInitialValue();
+
+	/**
+	 * Sets the value of the '{@link model.Buffer#getInitialValue <em>Initial Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Value</em>' attribute.
+	 * @see #getInitialValue()
+	 * @generated
+	 */
+	void setInitialValue(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Outgoing FSM</b></em>' reference.

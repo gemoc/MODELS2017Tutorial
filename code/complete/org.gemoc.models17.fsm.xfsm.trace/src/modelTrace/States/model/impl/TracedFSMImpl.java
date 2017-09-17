@@ -7,7 +7,7 @@ import java.util.Collection;
 import modelTrace.States.FSM_consummedString_Value;
 import modelTrace.States.FSM_currentState_Value;
 import modelTrace.States.FSM_producedString_Value;
-import modelTrace.States.FSM_unprocessedString_Value;
+import modelTrace.States.FSM_underProcessTrigger_Value;
 import modelTrace.States.StatesPackage;
 
 import modelTrace.States.model.ModelPackage;
@@ -41,7 +41,7 @@ import org.gemoc.models17.fsm.xfsm.model.FSM;
  *   <li>{@link modelTrace.States.model.impl.TracedFSMImpl#getCurrentStateSequence <em>Current State Sequence</em>}</li>
  *   <li>{@link modelTrace.States.model.impl.TracedFSMImpl#getOriginalObject <em>Original Object</em>}</li>
  *   <li>{@link modelTrace.States.model.impl.TracedFSMImpl#getProducedStringSequence <em>Produced String Sequence</em>}</li>
- *   <li>{@link modelTrace.States.model.impl.TracedFSMImpl#getUnprocessedStringSequence <em>Unprocessed String Sequence</em>}</li>
+ *   <li>{@link modelTrace.States.model.impl.TracedFSMImpl#getUnderProcessTriggerSequence <em>Under Process Trigger Sequence</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,14 +88,14 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 	protected EList<FSM_producedString_Value> producedStringSequence;
 
 	/**
-	 * The cached value of the '{@link #getUnprocessedStringSequence() <em>Unprocessed String Sequence</em>}' containment reference list.
+	 * The cached value of the '{@link #getUnderProcessTriggerSequence() <em>Under Process Trigger Sequence</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUnprocessedStringSequence()
+	 * @see #getUnderProcessTriggerSequence()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FSM_unprocessedString_Value> unprocessedStringSequence;
+	protected EList<FSM_underProcessTrigger_Value> underProcessTriggerSequence;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,11 +195,11 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FSM_unprocessedString_Value> getUnprocessedStringSequence() {
-		if (unprocessedStringSequence == null) {
-			unprocessedStringSequence = new EObjectContainmentWithInverseEList<FSM_unprocessedString_Value>(FSM_unprocessedString_Value.class, this, ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE, StatesPackage.FSM_UNPROCESSED_STRING_VALUE__PARENT);
+	public EList<FSM_underProcessTrigger_Value> getUnderProcessTriggerSequence() {
+		if (underProcessTriggerSequence == null) {
+			underProcessTriggerSequence = new EObjectContainmentWithInverseEList<FSM_underProcessTrigger_Value>(FSM_underProcessTrigger_Value.class, this, ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE, StatesPackage.FSM_UNDER_PROCESS_TRIGGER_VALUE__PARENT);
 		}
-		return unprocessedStringSequence;
+		return underProcessTriggerSequence;
 	}
 
 	/**
@@ -217,8 +217,8 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCurrentStateSequence()).basicAdd(otherEnd, msgs);
 			case ModelPackage.TRACED_FSM__PRODUCED_STRING_SEQUENCE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducedStringSequence()).basicAdd(otherEnd, msgs);
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUnprocessedStringSequence()).basicAdd(otherEnd, msgs);
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUnderProcessTriggerSequence()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -237,8 +237,8 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 				return ((InternalEList<?>)getCurrentStateSequence()).basicRemove(otherEnd, msgs);
 			case ModelPackage.TRACED_FSM__PRODUCED_STRING_SEQUENCE:
 				return ((InternalEList<?>)getProducedStringSequence()).basicRemove(otherEnd, msgs);
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				return ((InternalEList<?>)getUnprocessedStringSequence()).basicRemove(otherEnd, msgs);
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				return ((InternalEList<?>)getUnderProcessTriggerSequence()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -260,8 +260,8 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 				return basicGetOriginalObject();
 			case ModelPackage.TRACED_FSM__PRODUCED_STRING_SEQUENCE:
 				return getProducedStringSequence();
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				return getUnprocessedStringSequence();
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				return getUnderProcessTriggerSequence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,9 +290,9 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 				getProducedStringSequence().clear();
 				getProducedStringSequence().addAll((Collection<? extends FSM_producedString_Value>)newValue);
 				return;
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				getUnprocessedStringSequence().clear();
-				getUnprocessedStringSequence().addAll((Collection<? extends FSM_unprocessedString_Value>)newValue);
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				getUnderProcessTriggerSequence().clear();
+				getUnderProcessTriggerSequence().addAll((Collection<? extends FSM_underProcessTrigger_Value>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -318,8 +318,8 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 			case ModelPackage.TRACED_FSM__PRODUCED_STRING_SEQUENCE:
 				getProducedStringSequence().clear();
 				return;
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				getUnprocessedStringSequence().clear();
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				getUnderProcessTriggerSequence().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -341,8 +341,8 @@ public class TracedFSMImpl extends MinimalEObjectImpl.Container implements Trace
 				return originalObject != null;
 			case ModelPackage.TRACED_FSM__PRODUCED_STRING_SEQUENCE:
 				return producedStringSequence != null && !producedStringSequence.isEmpty();
-			case ModelPackage.TRACED_FSM__UNPROCESSED_STRING_SEQUENCE:
-				return unprocessedStringSequence != null && !unprocessedStringSequence.isEmpty();
+			case ModelPackage.TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE:
+				return underProcessTriggerSequence != null && !underProcessTriggerSequence.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

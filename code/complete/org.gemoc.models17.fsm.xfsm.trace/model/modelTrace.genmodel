@@ -138,18 +138,18 @@
         </genOperations>
       </genClasses>
       <genClasses>
-        <ecoreClass href="modelTrace.ecore#//States/FSM_unprocessedString_Value"/>
+        <ecoreClass href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value"/>
         <genFeatures property="None" notify="false" createChild="false">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_unprocessedString_Value/parent"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/parent"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_unprocessedString_Value/states"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/states"/>
         </genFeatures>
         <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/FSM_unprocessedString_Value/unprocessedString"/>
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/underProcessTrigger"/>
         </genFeatures>
         <genOperations>
-          <ecoreOperation href="modelTrace.ecore#//States/FSM_unprocessedString_Value/getStatesNoOpposite"/>
+          <ecoreOperation href="modelTrace.ecore#//States/FSM_underProcessTrigger_Value/getStatesNoOpposite"/>
         </genOperations>
       </genClasses>
       <genClasses>
@@ -170,7 +170,7 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_producedString_Values"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_unprocessedString_Values"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/fSM_underProcessTrigger_Values"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
           <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/State/startedSteps"/>
@@ -208,7 +208,7 @@
             <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/producedStringSequence"/>
           </genFeatures>
           <genFeatures property="None" children="true" createChild="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/unprocessedStringSequence"/>
+            <ecoreFeature xsi:type="ecore:EReference" href="modelTrace.ecore#//States/model/TracedFSM/underProcessTriggerSequence"/>
           </genFeatures>
         </genClasses>
       </nestedGenPackages>

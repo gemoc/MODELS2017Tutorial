@@ -87,7 +87,7 @@
           <details key="body" value="return this.getStates();"/>
         </eAnnotations>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentValues" unique="false" upperBound="-1">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentValues" unique="false">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
@@ -142,7 +142,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/fSM_producedString_Values"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FSM_unprocessedString_Value" eSuperTypes="//States/Value">
+    <eClassifiers xsi:type="ecore:EClass" name="FSM_underProcessTrigger_Value" eSuperTypes="//States/Value">
       <eAnnotations source="http://www.modelexecution.org/trace/XMOF">
         <details key="executionMetamodelElement"/>
       </eAnnotations>
@@ -151,9 +151,9 @@
           <details key="body" value="return this.getStates();"/>
         </eAnnotations>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/model/TracedFSM" eOpposite="//States/model/TracedFSM/unprocessedStringSequence"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/fSM_unprocessedString_Values"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unprocessedString" unique="false">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1" eType="//States/model/TracedFSM" eOpposite="//States/model/TracedFSM/underProcessTriggerSequence"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1" upperBound="-1" eType="//States/State" eOpposite="//States/State/fSM_underProcessTrigger_Values"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="underProcessTrigger" unique="false">
         <eAnnotations source="aspect"/>
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
@@ -164,7 +164,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="fSM_consummedString_Values" ordered="false" upperBound="-1" eType="//States/FSM_consummedString_Value" eOpposite="//States/FSM_consummedString_Value/states"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fSM_currentState_Values" ordered="false" upperBound="-1" eType="//States/FSM_currentState_Value" eOpposite="//States/FSM_currentState_Value/states"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fSM_producedString_Values" ordered="false" upperBound="-1" eType="//States/FSM_producedString_Value" eOpposite="//States/FSM_producedString_Value/states"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="fSM_unprocessedString_Values" ordered="false" upperBound="-1" eType="//States/FSM_unprocessedString_Value" eOpposite="//States/FSM_unprocessedString_Value/states"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fSM_underProcessTrigger_Values" ordered="false" upperBound="-1" eType="//States/FSM_underProcessTrigger_Value" eOpposite="//States/FSM_underProcessTrigger_Value/states"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="startedSteps" upperBound="-1" eType="//Steps/SpecificStep" eOpposite="//Steps/SpecificStep/startingState"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true" interface="true">
@@ -184,7 +184,7 @@
           <eType xsi:type="ecore:EClass" href="../../org.gemoc.models17.fsm.xfsm/model/XFSM.ecore#//FSM"/>
         </eStructuralFeatures>
         <eStructuralFeatures xsi:type="ecore:EReference" name="producedStringSequence" upperBound="-1" eType="//States/FSM_producedString_Value" containment="true" eOpposite="//States/FSM_producedString_Value/parent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="unprocessedStringSequence" upperBound="-1" eType="//States/FSM_unprocessedString_Value" containment="true" eOpposite="//States/FSM_unprocessedString_Value/parent"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="underProcessTriggerSequence" upperBound="-1" eType="//States/FSM_underProcessTrigger_Value" containment="true" eOpposite="//States/FSM_underProcessTrigger_Value/parent"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>

@@ -201,7 +201,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTracedFSM_UnprocessedStringSequence() {
+	public EReference getTracedFSM_UnderProcessTriggerSequence() {
 		return (EReference)tracedFSMEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -242,7 +242,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(tracedFSMEClass, TRACED_FSM__CURRENT_STATE_SEQUENCE);
 		createEReference(tracedFSMEClass, TRACED_FSM__ORIGINAL_OBJECT);
 		createEReference(tracedFSMEClass, TRACED_FSM__PRODUCED_STRING_SEQUENCE);
-		createEReference(tracedFSMEClass, TRACED_FSM__UNPROCESSED_STRING_SEQUENCE);
+		createEReference(tracedFSMEClass, TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE);
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getTracedFSM_CurrentStateSequence(), theStatesPackage.getFSM_currentState_Value(), theStatesPackage.getFSM_currentState_Value_Parent(), "currentStateSequence", null, 0, -1, TracedFSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracedFSM_OriginalObject(), theModelPackage_1.getFSM(), null, "originalObject", null, 0, 1, TracedFSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracedFSM_ProducedStringSequence(), theStatesPackage.getFSM_producedString_Value(), theStatesPackage.getFSM_producedString_Value_Parent(), "producedStringSequence", null, 0, -1, TracedFSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTracedFSM_UnprocessedStringSequence(), theStatesPackage.getFSM_unprocessedString_Value(), theStatesPackage.getFSM_unprocessedString_Value_Parent(), "unprocessedStringSequence", null, 0, -1, TracedFSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracedFSM_UnderProcessTriggerSequence(), theStatesPackage.getFSM_underProcessTrigger_Value(), theStatesPackage.getFSM_underProcessTrigger_Value_Parent(), "underProcessTriggerSequence", null, 0, -1, TracedFSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ModelPackageImpl

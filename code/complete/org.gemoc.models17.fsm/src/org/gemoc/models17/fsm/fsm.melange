@@ -7,4 +7,6 @@ language XFSM {
 	with org.gemoc.models17.fsm.semantics.model.aspects.FSMAspect
 	with org.gemoc.models17.fsm.semantics.model.aspects.StateAspect
 	with org.gemoc.models17.fsm.semantics.model.aspects.TransitionAspect
+	
+	ecl "/org.gemoc.models17.fsm.dse/ecl/XFSM.ecl"
 }

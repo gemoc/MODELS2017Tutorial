@@ -35,11 +35,15 @@ class SystemAspect {
 	
 	@Main
     def public void main() {
-    	
-    	while(true){
+    	var boolean anFSMRan = true
+    	while(anFSMRan){
+    		anFSMRan = false
 	    	try{	
 	   			for(FSM sm : _self.ownedFsms){
-	   				sm.run()
+	   				if (! sm.inputBuffer.isEmpty){
+	   					sm.run()
+	   					anFSMRan = true	
+	   				}
 	   			}
 			}  catch (Exception nt){
 				println("Stopped due to "+nt.message)
@@ -55,35 +59,36 @@ class FSMAspect {
 
 	public State currentState
 	
-	public String unprocessedString
+	public String underProcessTrigger
 	public String consummedString
 	public String producedString 
-
+	
+	
 	def public void initializeFSM(){
 		println("init FSM")
 		_self.currentState = _self.initialState;
-		_self.unprocessedString = ""
+		_self.underProcessTrigger = ""
 		_self.consummedString = ""
 		_self.producedString = ""
 	}
 	
 	@Step
     def public void run() {
-    	if (_self.inputBuffer.currentValues.size == 0){
+    	if (_self.inputBuffer.isEmpty){
+    		println(_self.name + "ran erroneously with empty buffer ! :-/")
     		return
     	}
-    	_self.unprocessedString = _self.unprocessedString + _self.inputBuffer.dequeue
+    	_self.underProcessTrigger = _self.inputBuffer.dequeue
     	
-    	println("run SM"+_self.name+" step on "+_self.unprocessedString)
+    	println("run SM"+_self.name+" step on "+_self.underProcessTrigger)
     	try{	
-   			_self.currentState.step(_self.unprocessedString)
+   			_self.currentState.step(_self.underProcessTrigger)
 		} catch (Exception nt){
 			println("Stopped due to "+nt.message)
 		}
-	
-		_self.outputBuffer.enqueue(_self.producedString)
+
     	_self.producedString = ""
-    		
+    	_self.underProcessTrigger = ""
 	}
 
 }
@@ -93,40 +98,61 @@ class StateAspect {
 	@Step
 	def public void step(String inputString) {
 		// Get the valid transitions	
-		val validTransitions =  _self.outgoing.filter[t | inputString.startsWith(t.trigger)]
+		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
 		if(validTransitions.empty) {
-			//throw new NoTransition()
-			throw new Exception("No Transition")
+			//just copy the token to the output buffer
+			_self.fsm.outputBuffer.enqueue(inputString)
 		}
 		if(validTransitions.size > 1) {
 			//throw new NonDeterminism()
 			throw new Exception("Non Determinism")
-			
 		}
 		// Fire transition
-		validTransitions.get(0).fire
+		if(validTransitions.size > 0){
+			validTransitions.get(0).fire
+			return
+		}
+		return
+		
 	}
 }
 
 @Aspect(className=Buffer)
 class BufferAspect {
 	
-	public EList<String> currentValues
+	public String currentValues //values are separated by comma
 	
 	public def void initialize(){
 		println("initialize buffer "+_self.name)
-		for(String s : _self.initialValue){
-			_self.currentValues.add(s) 
-		}
+			if(_self.initialValue != null){
+				_self.currentValues = _self.initialValue 
+			}else{
+				_self.currentValues = "\'empty\'"
+			}
+	}
+	
+	public def boolean isEmpty(){
+		return _self.currentValues.empty || _self.currentValues.compareTo("\'empty\'")==0
 	}
 	
 	public def void enqueue(String v){
-		_self.currentValues.add(v)
+		if(_self.isEmpty){
+			_self.currentValues = v
+		}else{
+			_self.currentValues = _self.currentValues+','+v
+		}
 	}
 
 	public def String dequeue(){
-		var String res = _self.currentValues.get(0)
-		_self.currentValues.remove(0)
+		var String res = ""
+		var int firstComma = _self.currentValues.indexOf(',')
+		if(firstComma < 0){
+			res = _self.currentValues
+			_self.currentValues = "\'empty\'"
+			return res
+		}
+		res = _self.currentValues.substring(0, firstComma)
+		_self.currentValues = _self.currentValues.substring(firstComma+1, _self.currentValues.length)
 		return res
 	}
 
@@ -139,9 +165,9 @@ class TransitionAspect {
 		println("Firing " + _self.name + " and entering " + _self.tgt.name)
 		val fsm = _self.src.fsm
 		fsm.currentState = _self.tgt
-		fsm.producedString = fsm.producedString + _self.action
-		fsm.consummedString = fsm.consummedString + _self.trigger
-		fsm.unprocessedString = fsm.unprocessedString.substring(_self.trigger.length)
+		fsm.producedString = _self.action
+		fsm.consummedString = fsm.consummedString + fsm.underProcessTrigger
+		fsm.outputBuffer.enqueue(fsm.producedString)
 	}
 }
 

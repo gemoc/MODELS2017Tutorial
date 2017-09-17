@@ -44,13 +44,13 @@ public class ModelTraceConstructor implements ITraceConstructor {
 				for (TreeIterator<EObject> i = r.getAllContents(); i.hasNext();) {
 					EObject o = i.next();
 
-					if (o instanceof org.gemoc.models17.fsm.xfsm.model.FSM) {
-						org.gemoc.models17.fsm.xfsm.model.FSM o_cast = (org.gemoc.models17.fsm.xfsm.model.FSM) o;
+					if (o instanceof org.gemoc.models17.fsm.xfsm.model.Buffer) {
+						org.gemoc.models17.fsm.xfsm.model.Buffer o_cast = (org.gemoc.models17.fsm.xfsm.model.Buffer) o;
 						addNewObjectToState(o_cast, lastState);
 					} else
 
-					if (o instanceof org.gemoc.models17.fsm.xfsm.model.Buffer) {
-						org.gemoc.models17.fsm.xfsm.model.Buffer o_cast = (org.gemoc.models17.fsm.xfsm.model.Buffer) o;
+					if (o instanceof org.gemoc.models17.fsm.xfsm.model.FSM) {
+						org.gemoc.models17.fsm.xfsm.model.FSM o_cast = (org.gemoc.models17.fsm.xfsm.model.FSM) o;
 						addNewObjectToState(o_cast, lastState);
 					}
 				}
@@ -74,9 +74,7 @@ public class ModelTraceConstructor implements ITraceConstructor {
 			modelTrace.States.Buffer_currentValues_Value firstValue_currentValues = modelTrace.States.StatesFactory.eINSTANCE
 					.createBuffer_currentValues_Value();
 
-			firstValue_currentValues.getCurrentValues()
-					.addAll((Collection<? extends java.lang.String>) o_cast.getCurrentValues());
-
+			firstValue_currentValues.setCurrentValues((java.lang.String) o_cast.getCurrentValues());
 			tracedObject.getCurrentValuesSequence().add(firstValue_currentValues);
 			newState.getBuffer_currentValues_Values().add(firstValue_currentValues);
 
@@ -125,13 +123,13 @@ public class ModelTraceConstructor implements ITraceConstructor {
 			tracedObject.getProducedStringSequence().add(firstValue_producedString);
 			newState.getFSM_producedString_Values().add(firstValue_producedString);
 
-			// Creation of the first value of the field unprocessedString
-			modelTrace.States.FSM_unprocessedString_Value firstValue_unprocessedString = modelTrace.States.StatesFactory.eINSTANCE
-					.createFSM_unprocessedString_Value();
+			// Creation of the first value of the field underProcessTrigger
+			modelTrace.States.FSM_underProcessTrigger_Value firstValue_underProcessTrigger = modelTrace.States.StatesFactory.eINSTANCE
+					.createFSM_underProcessTrigger_Value();
 
-			firstValue_unprocessedString.setUnprocessedString((java.lang.String) o_cast.getUnprocessedString());
-			tracedObject.getUnprocessedStringSequence().add(firstValue_unprocessedString);
-			newState.getFSM_unprocessedString_Values().add(firstValue_unprocessedString);
+			firstValue_underProcessTrigger.setUnderProcessTrigger((java.lang.String) o_cast.getUnderProcessTrigger());
+			tracedObject.getUnderProcessTriggerSequence().add(firstValue_underProcessTrigger);
+			newState.getFSM_underProcessTrigger_Values().add(firstValue_underProcessTrigger);
 
 		} // end if (!exeToTraced.containsKey
 		return added;
@@ -145,7 +143,7 @@ public class ModelTraceConstructor implements ITraceConstructor {
 		newState.getFSM_currentState_Values().addAll(oldState.getFSM_currentState_Values());
 		newState.getBuffer_currentValues_Values().addAll(oldState.getBuffer_currentValues_Values());
 		newState.getFSM_producedString_Values().addAll(oldState.getFSM_producedString_Values());
-		newState.getFSM_unprocessedString_Values().addAll(oldState.getFSM_unprocessedString_Values());
+		newState.getFSM_underProcessTrigger_Values().addAll(oldState.getFSM_underProcessTrigger_Values());
 		copiedState = true;
 		return newState;
 	}
@@ -172,75 +170,34 @@ public class ModelTraceConstructor implements ITraceConstructor {
 					org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange modelChange_cast = (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.NonCollectionFieldModelChange) modelChange;
 					org.eclipse.emf.ecore.EStructuralFeature p = modelChange_cast.getChangedField();
 
+					if (o instanceof org.gemoc.models17.fsm.xfsm.model.Buffer) {
+						org.gemoc.models17.fsm.xfsm.model.Buffer o_cast = (org.gemoc.models17.fsm.xfsm.model.Buffer) o;
+
+						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
+								.getBuffer_CurrentValues().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							modelTrace.States.model.TracedBuffer traced = (modelTrace.States.model.TracedBuffer) exeToTraced
+									.get(o);
+							modelTrace.States.Buffer_currentValues_Value lastValue = traced.getCurrentValuesSequence()
+									.get(traced.getCurrentValuesSequence().size() - 1);
+							newState.getBuffer_currentValues_Values().remove(lastValue);
+
+							// And we create a proper new value
+							modelTrace.States.Buffer_currentValues_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
+									.createBuffer_currentValues_Value();
+
+							java.lang.String value = o_cast.getCurrentValues();
+
+							newValue.setCurrentValues((java.lang.String) value);
+
+							traced.getCurrentValuesSequence().add(newValue);
+							newState.getBuffer_currentValues_Values().add(newValue);
+						}
+					}
+
 					if (o instanceof org.gemoc.models17.fsm.xfsm.model.FSM) {
 						org.gemoc.models17.fsm.xfsm.model.FSM o_cast = (org.gemoc.models17.fsm.xfsm.model.FSM) o;
-
-						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
-								.getFSM_ProducedString().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
-									.get(o);
-							modelTrace.States.FSM_producedString_Value lastValue = traced.getProducedStringSequence()
-									.get(traced.getProducedStringSequence().size() - 1);
-							newState.getFSM_producedString_Values().remove(lastValue);
-
-							// And we create a proper new value
-							modelTrace.States.FSM_producedString_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
-									.createFSM_producedString_Value();
-
-							java.lang.String value = o_cast.getProducedString();
-
-							newValue.setProducedString((java.lang.String) value);
-
-							traced.getProducedStringSequence().add(newValue);
-							newState.getFSM_producedString_Values().add(newValue);
-						} else
-
-						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
-								.getFSM_UnprocessedString().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
-									.get(o);
-							modelTrace.States.FSM_unprocessedString_Value lastValue = traced
-									.getUnprocessedStringSequence()
-									.get(traced.getUnprocessedStringSequence().size() - 1);
-							newState.getFSM_unprocessedString_Values().remove(lastValue);
-
-							// And we create a proper new value
-							modelTrace.States.FSM_unprocessedString_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
-									.createFSM_unprocessedString_Value();
-
-							java.lang.String value = o_cast.getUnprocessedString();
-
-							newValue.setUnprocessedString((java.lang.String) value);
-
-							traced.getUnprocessedStringSequence().add(newValue);
-							newState.getFSM_unprocessedString_Values().add(newValue);
-						} else
-
-						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
-								.getFSM_ConsummedString().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
-									.get(o);
-							modelTrace.States.FSM_consummedString_Value lastValue = traced.getConsummedStringSequence()
-									.get(traced.getConsummedStringSequence().size() - 1);
-							newState.getFSM_consummedString_Values().remove(lastValue);
-
-							// And we create a proper new value
-							modelTrace.States.FSM_consummedString_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
-									.createFSM_consummedString_Value();
-
-							java.lang.String value = o_cast.getConsummedString();
-
-							newValue.setConsummedString((java.lang.String) value);
-
-							traced.getConsummedStringSequence().add(newValue);
-							newState.getFSM_consummedString_Values().add(newValue);
-						} else
 
 						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
 								.getFSM_CurrentState().getFeatureID()) {
@@ -265,60 +222,73 @@ public class ModelTraceConstructor implements ITraceConstructor {
 
 							traced.getCurrentStateSequence().add(newValue);
 							newState.getFSM_currentState_Values().add(newValue);
-						}
-					}
-				}
-				// Here we look at collection mutable fields
-				// We must first manually find out if the collection changed...
-				// If it changed we must rollback the last values from the copied state, and add new values as well
-				else if (modelChange instanceof org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) {
-					org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange modelChange_cast = (org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.PotentialCollectionFieldModelChange) modelChange;
-					org.eclipse.emf.ecore.EStructuralFeature p = modelChange_cast.getChangedField();
-					if (o instanceof org.gemoc.models17.fsm.xfsm.model.Buffer) {
-						org.gemoc.models17.fsm.xfsm.model.Buffer o_cast = (org.gemoc.models17.fsm.xfsm.model.Buffer) o;
-						modelTrace.States.model.TracedBuffer tracedObject = (modelTrace.States.model.TracedBuffer) exeToTraced
-								.get(o_cast);
+						} else
+
 						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
-								.getBuffer_CurrentValues().getFeatureID()) {
-							// We compare the last collection in the value sequence, and the current one in the potentially changed object
-							List<modelTrace.States.Buffer_currentValues_Value> valueSequence = tracedObject
-									.getCurrentValuesSequence();
-							modelTrace.States.Buffer_currentValues_Value previousValue = null;
-							if (!valueSequence.isEmpty()) {
-								previousValue = valueSequence.get(valueSequence.size() - 1);
-							}
-							boolean change = false;
-							if (previousValue != null) {
-								if (previousValue.getCurrentValues().size() == o_cast.getCurrentValues().size()) {
-									java.util.Iterator<java.lang.String> it = o_cast.getCurrentValues().iterator();
-									for (java.lang.String aPreviousValue : previousValue.getCurrentValues()) {
-										java.lang.String aCurrentValue = it.next();
-										if (!aPreviousValue.equals(aCurrentValue)) {
-											change = true;
-											break;
-										}
-									}
-								} else {
-									change = true;
-								}
-							} else {
-								change = true;
-							}
-							if (change) {
-								stateChanged = true;
-								// Rollback: we remove the last value of this field from the new state
-								modelTrace.States.Buffer_currentValues_Value lastValue = tracedObject
-										.getCurrentValuesSequence()
-										.get(tracedObject.getCurrentValuesSequence().size() - 1);
-								newState.getBuffer_currentValues_Values().remove(lastValue);
-								// And we create a proper new value							
-								modelTrace.States.Buffer_currentValues_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
-										.createBuffer_currentValues_Value();
-								newValue.getCurrentValues()
-										.addAll((Collection<? extends java.lang.String>) o_cast.getCurrentValues());
-								tracedObject.getCurrentValuesSequence().add(newValue);
-								newState.getBuffer_currentValues_Values().add(newValue);
-							}
+								.getFSM_ProducedString().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
+									.get(o);
+							modelTrace.States.FSM_producedString_Value lastValue = traced.getProducedStringSequence()
+									.get(traced.getProducedStringSequence().size() - 1);
+							newState.getFSM_producedString_Values().remove(lastValue);
+
+							// And we create a proper new value
+							modelTrace.States.FSM_producedString_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
+									.createFSM_producedString_Value();
+
+							java.lang.String value = o_cast.getProducedString();
+
+							newValue.setProducedString((java.lang.String) value);
+
+							traced.getProducedStringSequence().add(newValue);
+							newState.getFSM_producedString_Values().add(newValue);
+						} else
+
+						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
+								.getFSM_UnderProcessTrigger().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
+									.get(o);
+							modelTrace.States.FSM_underProcessTrigger_Value lastValue = traced
+									.getUnderProcessTriggerSequence()
+									.get(traced.getUnderProcessTriggerSequence().size() - 1);
+							newState.getFSM_underProcessTrigger_Values().remove(lastValue);
+
+							// And we create a proper new value
+							modelTrace.States.FSM_underProcessTrigger_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
+									.createFSM_underProcessTrigger_Value();
+
+							java.lang.String value = o_cast.getUnderProcessTrigger();
+
+							newValue.setUnderProcessTrigger((java.lang.String) value);
+
+							traced.getUnderProcessTriggerSequence().add(newValue);
+							newState.getFSM_underProcessTrigger_Values().add(newValue);
+						} else
+
+						if (p.getFeatureID() == org.gemoc.models17.fsm.xfsm.model.ModelPackage.eINSTANCE
+								.getFSM_ConsummedString().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							modelTrace.States.model.TracedFSM traced = (modelTrace.States.model.TracedFSM) exeToTraced
+									.get(o);
+							modelTrace.States.FSM_consummedString_Value lastValue = traced.getConsummedStringSequence()
+									.get(traced.getConsummedStringSequence().size() - 1);
+							newState.getFSM_consummedString_Values().remove(lastValue);
+
+							// And we create a proper new value
+							modelTrace.States.FSM_consummedString_Value newValue = modelTrace.States.StatesFactory.eINSTANCE
+									.createFSM_consummedString_Value();
+
+							java.lang.String value = o_cast.getConsummedString();
+
+							newValue.setConsummedString((java.lang.String) value);
+
+							traced.getConsummedStringSequence().add(newValue);
+							newState.getFSM_consummedString_Values().add(newValue);
 						}
 					}
 				}
@@ -337,7 +307,7 @@ public class ModelTraceConstructor implements ITraceConstructor {
 				newState.getFSM_currentState_Values().clear();
 				newState.getBuffer_currentValues_Values().clear();
 				newState.getFSM_producedString_Values().clear();
-				newState.getFSM_unprocessedString_Values().clear();
+				newState.getFSM_underProcessTrigger_Values().clear();
 			}
 			copiedState = false;
 		}

@@ -94,10 +94,10 @@ public class StatesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatesPackage.FSM_UNPROCESSED_STRING_VALUE: {
-				FSM_unprocessedString_Value fsM_unprocessedString_Value = (FSM_unprocessedString_Value)theEObject;
-				T result = caseFSM_unprocessedString_Value(fsM_unprocessedString_Value);
-				if (result == null) result = caseValue(fsM_unprocessedString_Value);
+			case StatesPackage.FSM_UNDER_PROCESS_TRIGGER_VALUE: {
+				FSM_underProcessTrigger_Value fsM_underProcessTrigger_Value = (FSM_underProcessTrigger_Value)theEObject;
+				T result = caseFSM_underProcessTrigger_Value(fsM_underProcessTrigger_Value);
+				if (result == null) result = caseValue(fsM_underProcessTrigger_Value);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,17 +178,17 @@ public class StatesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>FSM unprocessed String Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>FSM under Process Trigger Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>FSM unprocessed String Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>FSM under Process Trigger Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFSM_unprocessedString_Value(FSM_unprocessedString_Value object) {
+	public T caseFSM_underProcessTrigger_Value(FSM_underProcessTrigger_Value object) {
 		return null;
 	}
 

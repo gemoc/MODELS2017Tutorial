@@ -10,7 +10,7 @@ import modelTrace.States.Buffer_currentValues_Value;
 import modelTrace.States.FSM_consummedString_Value;
 import modelTrace.States.FSM_currentState_Value;
 import modelTrace.States.FSM_producedString_Value;
-import modelTrace.States.FSM_unprocessedString_Value;
+import modelTrace.States.FSM_underProcessTrigger_Value;
 import modelTrace.States.State;
 import modelTrace.States.StatesFactory;
 import modelTrace.States.StatesPackage;
@@ -73,7 +73,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass fsM_unprocessedString_ValueEClass = null;
+	private EClass fsM_underProcessTrigger_ValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,8 +314,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFSM_unprocessedString_Value() {
-		return fsM_unprocessedString_ValueEClass;
+	public EClass getFSM_underProcessTrigger_Value() {
+		return fsM_underProcessTrigger_ValueEClass;
 	}
 
 	/**
@@ -323,8 +323,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFSM_unprocessedString_Value_Parent() {
-		return (EReference)fsM_unprocessedString_ValueEClass.getEStructuralFeatures().get(0);
+	public EReference getFSM_underProcessTrigger_Value_Parent() {
+		return (EReference)fsM_underProcessTrigger_ValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -332,8 +332,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFSM_unprocessedString_Value_States() {
-		return (EReference)fsM_unprocessedString_ValueEClass.getEStructuralFeatures().get(1);
+	public EReference getFSM_underProcessTrigger_Value_States() {
+		return (EReference)fsM_underProcessTrigger_ValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -341,8 +341,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFSM_unprocessedString_Value_UnprocessedString() {
-		return (EAttribute)fsM_unprocessedString_ValueEClass.getEStructuralFeatures().get(2);
+	public EAttribute getFSM_underProcessTrigger_Value_UnderProcessTrigger() {
+		return (EAttribute)fsM_underProcessTrigger_ValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getState_FSM_unprocessedString_Values() {
+	public EReference getState_FSM_underProcessTrigger_Values() {
 		return (EReference)stateEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -483,10 +483,10 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		createEAttribute(fsM_producedString_ValueEClass, FSM_PRODUCED_STRING_VALUE__PRODUCED_STRING);
 		createEReference(fsM_producedString_ValueEClass, FSM_PRODUCED_STRING_VALUE__STATES);
 
-		fsM_unprocessedString_ValueEClass = createEClass(FSM_UNPROCESSED_STRING_VALUE);
-		createEReference(fsM_unprocessedString_ValueEClass, FSM_UNPROCESSED_STRING_VALUE__PARENT);
-		createEReference(fsM_unprocessedString_ValueEClass, FSM_UNPROCESSED_STRING_VALUE__STATES);
-		createEAttribute(fsM_unprocessedString_ValueEClass, FSM_UNPROCESSED_STRING_VALUE__UNPROCESSED_STRING);
+		fsM_underProcessTrigger_ValueEClass = createEClass(FSM_UNDER_PROCESS_TRIGGER_VALUE);
+		createEReference(fsM_underProcessTrigger_ValueEClass, FSM_UNDER_PROCESS_TRIGGER_VALUE__PARENT);
+		createEReference(fsM_underProcessTrigger_ValueEClass, FSM_UNDER_PROCESS_TRIGGER_VALUE__STATES);
+		createEAttribute(fsM_underProcessTrigger_ValueEClass, FSM_UNDER_PROCESS_TRIGGER_VALUE__UNDER_PROCESS_TRIGGER);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__BUFFER_CURRENT_VALUES_VALUES);
@@ -494,7 +494,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		createEReference(stateEClass, STATE__FSM_CONSUMMED_STRING_VALUES);
 		createEReference(stateEClass, STATE__FSM_CURRENT_STATE_VALUES);
 		createEReference(stateEClass, STATE__FSM_PRODUCED_STRING_VALUES);
-		createEReference(stateEClass, STATE__FSM_UNPROCESSED_STRING_VALUES);
+		createEReference(stateEClass, STATE__FSM_UNDER_PROCESS_TRIGGER_VALUES);
 		createEReference(stateEClass, STATE__STARTED_STEPS);
 
 		valueEClass = createEClass(VALUE);
@@ -541,11 +541,11 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		fsM_consummedString_ValueEClass.getESuperTypes().add(this.getValue());
 		fsM_currentState_ValueEClass.getESuperTypes().add(this.getValue());
 		fsM_producedString_ValueEClass.getESuperTypes().add(this.getValue());
-		fsM_unprocessedString_ValueEClass.getESuperTypes().add(this.getValue());
+		fsM_underProcessTrigger_ValueEClass.getESuperTypes().add(this.getValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buffer_currentValues_ValueEClass, Buffer_currentValues_Value.class, "Buffer_currentValues_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBuffer_currentValues_Value_CurrentValues(), ecorePackage.getEString(), "currentValues", null, 0, -1, Buffer_currentValues_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuffer_currentValues_Value_CurrentValues(), ecorePackage.getEString(), "currentValues", null, 0, 1, Buffer_currentValues_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuffer_currentValues_Value_Parent(), theModelPackage_1.getTracedBuffer(), theModelPackage_1.getTracedBuffer_CurrentValuesSequence(), "parent", null, 1, 1, Buffer_currentValues_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuffer_currentValues_Value_States(), this.getState(), this.getState_Buffer_currentValues_Values(), "states", null, 1, -1, Buffer_currentValues_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -572,12 +572,12 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 
 		addEOperation(fsM_producedString_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(fsM_unprocessedString_ValueEClass, FSM_unprocessedString_Value.class, "FSM_unprocessedString_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFSM_unprocessedString_Value_Parent(), theModelPackage_1.getTracedFSM(), theModelPackage_1.getTracedFSM_UnprocessedStringSequence(), "parent", null, 1, 1, FSM_unprocessedString_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFSM_unprocessedString_Value_States(), this.getState(), this.getState_FSM_unprocessedString_Values(), "states", null, 1, -1, FSM_unprocessedString_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFSM_unprocessedString_Value_UnprocessedString(), ecorePackage.getEString(), "unprocessedString", null, 0, 1, FSM_unprocessedString_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(fsM_underProcessTrigger_ValueEClass, FSM_underProcessTrigger_Value.class, "FSM_underProcessTrigger_Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFSM_underProcessTrigger_Value_Parent(), theModelPackage_1.getTracedFSM(), theModelPackage_1.getTracedFSM_UnderProcessTriggerSequence(), "parent", null, 1, 1, FSM_underProcessTrigger_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFSM_underProcessTrigger_Value_States(), this.getState(), this.getState_FSM_underProcessTrigger_Values(), "states", null, 1, -1, FSM_underProcessTrigger_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFSM_underProcessTrigger_Value_UnderProcessTrigger(), ecorePackage.getEString(), "underProcessTrigger", null, 0, 1, FSM_underProcessTrigger_Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(fsM_unprocessedString_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(fsM_underProcessTrigger_ValueEClass, this.getState(), "getStatesNoOpposite", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_Buffer_currentValues_Values(), this.getBuffer_currentValues_Value(), this.getBuffer_currentValues_Value_States(), "buffer_currentValues_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -585,7 +585,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		initEReference(getState_FSM_consummedString_Values(), this.getFSM_consummedString_Value(), this.getFSM_consummedString_Value_States(), "fSM_consummedString_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_FSM_currentState_Values(), this.getFSM_currentState_Value(), this.getFSM_currentState_Value_States(), "fSM_currentState_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_FSM_producedString_Values(), this.getFSM_producedString_Value(), this.getFSM_producedString_Value_States(), "fSM_producedString_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getState_FSM_unprocessedString_Values(), this.getFSM_unprocessedString_Value(), this.getFSM_unprocessedString_Value_States(), "fSM_unprocessedString_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getState_FSM_underProcessTrigger_Values(), this.getFSM_underProcessTrigger_Value(), this.getFSM_underProcessTrigger_Value_States(), "fSM_underProcessTrigger_Values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getState_StartedSteps(), theStepsPackage.getSpecificStep(), theStepsPackage.getSpecificStep_StartingState(), "startedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -631,7 +631,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 			 "executionMetamodelElement", null
 		   });	
 		addAnnotation
-		  (fsM_unprocessedString_ValueEClass, 
+		  (fsM_underProcessTrigger_ValueEClass, 
 		   source, 
 		   new String[] {
 			 "executionMetamodelElement", null
@@ -667,7 +667,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		   new String[] {
 		   });	
 		addAnnotation
-		  (getFSM_unprocessedString_Value_UnprocessedString(), 
+		  (getFSM_underProcessTrigger_Value_UnderProcessTrigger(), 
 		   source, 
 		   new String[] {
 		   });

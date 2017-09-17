@@ -138,13 +138,13 @@ public interface ModelPackage extends EPackage {
 	int TRACED_FSM__PRODUCED_STRING_SEQUENCE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Unprocessed String Sequence</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Under Process Trigger Sequence</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACED_FSM__UNPROCESSED_STRING_SEQUENCE = 4;
+	int TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Traced FSM</em>' class.
@@ -243,15 +243,15 @@ public interface ModelPackage extends EPackage {
 	EReference getTracedFSM_ProducedStringSequence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link modelTrace.States.model.TracedFSM#getUnprocessedStringSequence <em>Unprocessed String Sequence</em>}'.
+	 * Returns the meta object for the containment reference list '{@link modelTrace.States.model.TracedFSM#getUnderProcessTriggerSequence <em>Under Process Trigger Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Unprocessed String Sequence</em>'.
-	 * @see modelTrace.States.model.TracedFSM#getUnprocessedStringSequence()
+	 * @return the meta object for the containment reference list '<em>Under Process Trigger Sequence</em>'.
+	 * @see modelTrace.States.model.TracedFSM#getUnderProcessTriggerSequence()
 	 * @see #getTracedFSM()
 	 * @generated
 	 */
-	EReference getTracedFSM_UnprocessedStringSequence();
+	EReference getTracedFSM_UnderProcessTriggerSequence();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -344,12 +344,12 @@ public interface ModelPackage extends EPackage {
 		EReference TRACED_FSM__PRODUCED_STRING_SEQUENCE = eINSTANCE.getTracedFSM_ProducedStringSequence();
 
 		/**
-		 * The meta object literal for the '<em><b>Unprocessed String Sequence</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Under Process Trigger Sequence</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACED_FSM__UNPROCESSED_STRING_SEQUENCE = eINSTANCE.getTracedFSM_UnprocessedStringSequence();
+		EReference TRACED_FSM__UNDER_PROCESS_TRIGGER_SEQUENCE = eINSTANCE.getTracedFSM_UnderProcessTriggerSequence();
 
 	}
 

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link modelTrace.States.State#getFSM_consummedString_Values <em>FSM consummed String Values</em>}</li>
  *   <li>{@link modelTrace.States.State#getFSM_currentState_Values <em>FSM current State Values</em>}</li>
  *   <li>{@link modelTrace.States.State#getFSM_producedString_Values <em>FSM produced String Values</em>}</li>
- *   <li>{@link modelTrace.States.State#getFSM_unprocessedString_Values <em>FSM unprocessed String Values</em>}</li>
+ *   <li>{@link modelTrace.States.State#getFSM_underProcessTrigger_Values <em>FSM under Process Trigger Values</em>}</li>
  *   <li>{@link modelTrace.States.State#getStartedSteps <em>Started Steps</em>}</li>
  * </ul>
  *
@@ -122,22 +122,22 @@ public interface State extends EObject {
 	EList<FSM_producedString_Value> getFSM_producedString_Values();
 
 	/**
-	 * Returns the value of the '<em><b>FSM unprocessed String Values</b></em>' reference list.
-	 * The list contents are of type {@link modelTrace.States.FSM_unprocessedString_Value}.
-	 * It is bidirectional and its opposite is '{@link modelTrace.States.FSM_unprocessedString_Value#getStates <em>States</em>}'.
+	 * Returns the value of the '<em><b>FSM under Process Trigger Values</b></em>' reference list.
+	 * The list contents are of type {@link modelTrace.States.FSM_underProcessTrigger_Value}.
+	 * It is bidirectional and its opposite is '{@link modelTrace.States.FSM_underProcessTrigger_Value#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>FSM unprocessed String Values</em>' reference list isn't clear,
+	 * If the meaning of the '<em>FSM under Process Trigger Values</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>FSM unprocessed String Values</em>' reference list.
-	 * @see modelTrace.States.StatesPackage#getState_FSM_unprocessedString_Values()
-	 * @see modelTrace.States.FSM_unprocessedString_Value#getStates
+	 * @return the value of the '<em>FSM under Process Trigger Values</em>' reference list.
+	 * @see modelTrace.States.StatesPackage#getState_FSM_underProcessTrigger_Values()
+	 * @see modelTrace.States.FSM_underProcessTrigger_Value#getStates
 	 * @model opposite="states" ordered="false"
 	 * @generated
 	 */
-	EList<FSM_unprocessedString_Value> getFSM_unprocessedString_Values();
+	EList<FSM_underProcessTrigger_Value> getFSM_underProcessTrigger_Values();
 
 	/**
 	 * Returns the value of the '<em><b>Started Steps</b></em>' reference list.

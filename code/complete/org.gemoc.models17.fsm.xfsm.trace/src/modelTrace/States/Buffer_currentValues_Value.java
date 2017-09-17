@@ -26,20 +26,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Buffer_currentValues_Value extends Value {
 	/**
-	 * Returns the value of the '<em><b>Current Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Current Values</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Values</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Current Values</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Values</em>' attribute list.
+	 * @return the value of the '<em>Current Values</em>' attribute.
+	 * @see #setCurrentValues(String)
 	 * @see modelTrace.States.StatesPackage#getBuffer_currentValues_Value_CurrentValues()
 	 * @model unique="false"
 	 * @generated
 	 */
-	EList<String> getCurrentValues();
+	String getCurrentValues();
+
+	/**
+	 * Sets the value of the '{@link modelTrace.States.Buffer_currentValues_Value#getCurrentValues <em>Current Values</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Values</em>' attribute.
+	 * @see #getCurrentValues()
+	 * @generated
+	 */
+	void setCurrentValues(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
