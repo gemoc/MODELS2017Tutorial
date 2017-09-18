@@ -91,7 +91,7 @@ An additional annotation **@Main** must be used to annotate the entry point of t
 
 _SOLUTION WILL APPEAR HERE_
 
-
+<!--
 ```java
     @Aspect(className=State)
     class StateAspect {
@@ -119,8 +119,8 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
-
-
+-->
+<!--
 ```java
     @Aspect(className=Transition)
     class TransitionAspect {
@@ -134,7 +134,7 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
-
+-->
 
 After finishing or to see the effect of your code, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
@@ -286,10 +286,18 @@ You can also try to add a constraint to allow the execution of only one FSM at a
 
 As you can see from the second invariants we defined, it can be tricky, if you do not master logical time constraints, to define a constraint from the low level primtives that are offered. Fortunately, in this case you can define a Domain Specific constraint that encodes the concurrency constraints as a MoCCML automata.
 
-For instance, you can download [this project](TODO) from the repo and import it into your language workbench. In this project, we defined the follogin automata
+For instance, you can download [this project](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/MoCCMLDomainSpecificConstraint) from the repo and import it into your language workbench. In this project, we defined the follogin automata
  
 ![](figs/concurrency_MoCCMLautomatapng.png)
  
+**TODO:** try to use this automata in the ECL file and test it in the modeling workbench. If you wish, you can also try to add a maximum size to the buffers :)
+
+_SOLUTION WILL APPEAR HERE_
+
+<!--
+![](figs/concurrency_solutionwithMoCCMLAutomata.png)
+-->
+
 ## Part 4. Wrap-up and discussion
 
 See slides.
