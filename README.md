@@ -139,7 +139,7 @@ _SOLUTION WILL APPEAR HERE_
 
 After finishing or to see the effect of your code, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
-![](figs/23-melange-generate-all.png)
+<!--![](figs/23-melange-generate-all.png)-->
 
 ### 2.4 Deploying the modeling workbench and playing with the example model
 
