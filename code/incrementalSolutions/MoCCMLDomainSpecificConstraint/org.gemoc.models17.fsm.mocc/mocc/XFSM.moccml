@@ -1,0 +1,39 @@
+AutomataConstraintLibrary XFSM{
+	import
+	"platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib"
+	as kernel ;
+	import
+	"platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib"
+	as ccsl ;
+	DiscreteClockType clock DiscreteClockType ^clock2
+
+	RelationLibrary newRelationLib1 {
+
+		AutomataRelationDefinition BufferRelationDefintion [ BufferRelation ] {
+
+			variables { 
+				Integer currentNumberOfData = 0 
+			}
+
+			init:  S1
+
+			from BRD_S3 to BRD_S3 : BRD_S3ToBRD_S3
+			-> ( when readBuffer if ( currentNumberOfData > zero ) do currentNumberOfData
+			= ( currentNumberOfData - one ) )
+
+			from BRD_S3 to BRD_S3 : BRD_S3ToBRD_S32
+			-> ( when writeBuffer do currentNumberOfData = ( currentNumberOfData + one )
+			)
+
+			from S1 to BRD_S3 : s
+			-> ( do currentNumberOfData =
+			initialNumberOfData .value )
+
+		
+			State S1 ( out :s )
+
+			State BRD_S3 ( in : BRD_S3ToBRD_S3, BRD_S3ToBRD_S32, s out : BRD_S3ToBRD_S3, BRD_S3ToBRD_S32 )
+		}
+		RelationDeclaration BufferRelation ( readBuffer : clock, writeBuffer: clock, initialNumberOfData: int )
+	}
+}
