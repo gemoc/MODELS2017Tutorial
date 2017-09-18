@@ -91,7 +91,6 @@ An additional annotation **@Main** must be used to annotate the entry point of t
 
 _SOLUTION WILL APPEAR HERE_
 
-<!--
 ```java
     @Aspect(className=State)
     class StateAspect {
@@ -119,8 +118,7 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
--->
-<!--
+
 ```java
     @Aspect(className=Transition)
     class TransitionAspect {
@@ -134,7 +132,7 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
--->
+
 
 After finishing or to see the effect of your code, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
