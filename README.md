@@ -277,8 +277,11 @@ _SOLUTION WILL APPEAR HERE_
 >&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
 -->
 
-​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in this archive into your workspace:
-**TODO**
+​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/blob/master/code/incrementalSolutions/languageWB_concurrentDSEOK/languageWB_concurrentDSEOK.zip) into your workspace.
+
+You can also try to add a constraint to allow the execution of only one FSM at a time but without forcing the order like in the sequential semantics.
+
+**TODO: MoCCML automata**
 
 ## Part 4. Wrap-up and discussion
 
