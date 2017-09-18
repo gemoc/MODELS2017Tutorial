@@ -142,12 +142,12 @@ After finishing, run "generate all" on the Melange model of project org.gemoc.mo
 
 ### 2.4 Deploying the modeling workbench and playing with the example model
 
-goto 2.2 and see the differences ;)
+goto 2.2 and see the differences ;)  
 :bulb: you can launch the modeling workbench in debug mode. If so, you do not need to restart the MW after each change in the semantics. Even better you can dynamically provide the new semantics during a debug of your model (at your own risks ;) )
 
 
 **TODO**
-:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/solution), if you had any problems with recreating the new syntax elements, please download it, clear your language workbench workspace and import these projects. Then run the modeling workbench on top of these projects.
+:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_DSAOK_allgenerated), if you had any problems with recreating the new semantics or experimented too much, please download it, clear your language workbench workspace and import the projects in the archive. Then run the modeling workbench on top of these projects.
 
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
