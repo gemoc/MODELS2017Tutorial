@@ -298,9 +298,9 @@ For instance, you can download [this project](https://github.com/gemoc/MODELS201
 
 _SOLUTION WILL APPEAR HERE_
 
-<!--
+
 ![](figs/concurrency_solutionwithMoCCMLAutomata.png)
--->
+
 
 ## Part 4. Wrap-up and discussion
 
