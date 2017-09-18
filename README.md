@@ -121,7 +121,6 @@ _SOLUTION WILL APPEAR HERE_
 ```
 -->
 <!--
-
 ```java
     @Aspect(className=Transition)
     class TransitionAspect {
@@ -281,16 +280,31 @@ _SOLUTION WILL APPEAR HERE_
 
 You can also try to add a constraint to allow the execution of only one FSM at a time but without forcing the order like in the sequential semantics.
 
-**TODO: multi branch trace and scheduling state space**
+:bulb: you can use the multi branch time to jump in the past and explore a new future by choosing new scheduling orders
+
+![](figs/concurrency_multibranchTime.png)
+
+:bulb: You can also explore the whole scheduling state space. For that, right click on the .timemodel -> TimeSquare -> Compute State Space
+
+![](figs/concurrency_stateSpaceConcurrent.png)
+
 
 ### Defining a Domain Specific Concurrent Constraint
 
 As you can see from the second invariants we defined, it can be tricky, if you do not master logical time constraints, to define a constraint from the low level primtives that are offered. Fortunately, in this case you can define a Domain Specific constraint that encodes the concurrency constraints as a MoCCML automata.
 
-For instance, you can download [this project](TODO) from the repo and import it into your language workbench. In this project, we defined the follogin automata
+For instance, you can download [this project](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/MoCCMLDomainSpecificConstraint) from the repo and import it into your language workbench. In this project, we defined the follogin automata
  
 ![](figs/concurrency_MoCCMLautomatapng.png)
  
+**TODO:** try to use this automata in the ECL file and test it in the modeling workbench. If you wish, you can also try to add a maximum size to the buffers :)
+
+_SOLUTION WILL APPEAR HERE_
+
+<!--
+![](figs/concurrency_solutionwithMoCCMLAutomata.png)
+-->
+
 ## Part 4. Wrap-up and discussion
 
 See slides.
