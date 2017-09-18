@@ -157,7 +157,7 @@ Now, you should be able to run and debug your language according to your desired
 
 If you have time, you can experiment how the language designer or a debugger can augment the animation of the model with new information. For instance, something easy to do is to add a new representation in the _Animation_ layer of the provided odesign file (project org.gemoc.models17.fsm.xfsm.design/description/xfsm.odesign) to show the string which has been consummed by each fsm. If you are too impatient and are looking for the resulting file, we provide it [here](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/newAnimationRepresentation/xfsm.odesign)   
 
-## Part 3. Complementing your finite state machine language with a formal concurrency model
+## Part 3. Weave Domain-Specific Concurrency Constraints Into Your DSL!
 ### Introduction
 
 In the previous parts you defined an operational semantics for our little communicating FSM language. Based on that you were able to simulate and debug the models that conform this language.
@@ -277,9 +277,20 @@ _SOLUTION WILL APPEAR HERE_
 >&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
 -->
 
-​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in this archive into your workspace:
-**TODO**
+​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/blob/master/code/incrementalSolutions/languageWB_concurrentDSEOK/languageWB_concurrentDSEOK.zip) into your workspace.
 
+You can also try to add a constraint to allow the execution of only one FSM at a time but without forcing the order like in the sequential semantics.
+
+**TODO: multi branch trace and scheduling state space**
+
+### Defining a Domain Specific Concurrent Constraint
+
+As you can see from the second invariants we defined, it can be tricky, if you do not master logical time constraints, to define a constraint from the low level primtives that are offered. Fortunately, in this case you can define a Domain Specific constraint that encodes the concurrency constraints as a MoCCML automata.
+
+For instance, you can download [this project](TODO) from the repo and import it into your language workbench. In this project, we defined the follogin automata
+ 
+![](figs/concurrency_MoCCMLautomata.png)
+ 
 ## Part 4. Wrap-up and discussion
 
 See slides.
