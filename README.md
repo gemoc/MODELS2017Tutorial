@@ -280,7 +280,14 @@ _SOLUTION WILL APPEAR HERE_
 
 You can also try to add a constraint to allow the execution of only one FSM at a time but without forcing the order like in the sequential semantics.
 
-**TODO: multi branch trace and scheduling state space**
+:bulb: you can use the multi branch time to jump in the past and explore a new future by choosing new scheduling orders
+
+![](figs/concurrency_multibranchTime.png)
+
+:bulb: You can also explore the whole scheduling state space. For that, right click on the .timemodel -> TimeSquare -> Compute State Space
+
+![](figs/concurrency_stateSpaceConcurrent.png)
+
 
 ### Defining a Domain Specific Concurrent Constraint
 
