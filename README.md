@@ -70,13 +70,13 @@ In the modeling workbench, you must import the example model provided for the tu
 
 ![](figs/24-modeling-workbench.png)
 
-From here, you can run the launch configuration */launch/testModels.launch*, as a **debug configuration** and start debugging your model. 
+From here, you can **right click** on the launch configuration *testSequentialExecution.launch*, **debug as** testSequentialExecution and start debugging your model. Note that for this purpose the debug view proposes to open, click yes. You have a typical eclipse debug environment with access to dynamic variables, step into, etc. Additionnaly, you have the multidimensional trace (if not open, choose _windows_ -> _show view_ -> _others_ -> multidimensional...). This last view is dedicated to your model and allos you to navigate in the trace in a multidimensional way (do not hesitate to pleasantly yell at us if you want more information)  
 
 ### 2.3 Complementing the execution semantics
 
-The execution semantics of FSM (in the form of an operational semantics, i.e., a virtual machine) are defined in the file tfsmAspects.xtend of project org.gemoc.models17.fsm.k3dsa. This file which employs [Kermeta 3 (K3)](http://www.kermeta.org) and the [Interpreter Design Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern) to describe the execution semantics of FSM models and its contents is woven into the metamodel of your executable DSL (i.e., XSFSM, not FSM!). 
+The execution semantics of FSM (in the form of an operational semantics, i.e., an interpreter) are defined in the file tfsmAspects.xtend of project org.gemoc.models17.fsm.k3dsa. This file which employs [Kermeta 3 (K3)](http://www.kermeta.org) and the [Interpreter Design Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern) to describe the execution semantics of FSM models and its contents is woven into the metamodel of your executable DSL (i.e., XSFSM, not FSM!). 
 
-In tfsmAspects.xtend, you have aspects for all classes of your metamodel. Some of these aspects use annotations to define execution functions and entry points. 
+In tfsmAspects.xtend, you have aspects for all classes of your metamodel. Some of these aspects use annotations to define specific execution functions and entry points (_e.g._, @InitializeModel). 
 
 **Execution Functions**
 
@@ -86,7 +86,8 @@ The execution functions define how the execution data evolve during the executio
 
 An additional annotation **@Main** must be used to annotate the entry point of the interpreter. Several methods can have the same annotation and will be proposed as possible entry points in the launch configuration at debug time. 
 
-We left two methods unimplemented with "TODO". Try to implement these two methods.
+
+:warning: We left two methods unimplemented with "TODO". Try to implement these two methods to complete the behavior of the model to your taste.
 
 _SOLUTION WILL APPEAR HERE_
 
@@ -136,14 +137,14 @@ _SOLUTION WILL APPEAR HERE_
 ```
 -->
 
-After finishing, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
+After finishing or to see the effect of your code, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
 ![](figs/23-melange-generate-all.png)
 
 ### 2.4 Deploying the modeling workbench and playing with the example model
 
 goto 2.2 and see the differences ;)  
-:bulb: you can launch the modeling workbench in debug mode. If so, you do not need to restart the MW after each change in the semantics. Even better you can dynamically provide the new semantics during a debug of your model (at your own risks ;) )
+:bulb: you can launch the modeling workbench in debug mode. If so, you do not need to restart the modeling workbench after each change in the semantics (you still need to generate all on the Melange file). Even better you can dynamically provide the new semantics during a debug of your model (at your own risks ;) )
 
 
 **TODO**
@@ -154,10 +155,11 @@ goto 2.2 and see the differences ;)
 ### Introduction
 
 In the previous parts you defined an operational semantics for our little communicating FSM language. Based on that you were able to simulate and debug the models that conform this language.
-If you have a careful look at the given semantics, you can see that the call to the *run()* of each FSM depends on the order the FSMs are stored in the *ownedFsms* collection. This mean that we restricted the semantics to be sequential and in this specific order. However, as soon as a FSM can read in its input buffer, it can be ran; possibly concurrently with other FSMs. In this section we will replace the *main()* method of our operational semantics to specify the concurrency model of our language.
+If you have a careful look at the given semantics, you can see that the call to the *run()* of each FSM depends on the order the FSMs are stored in the *ownedFsms* collection. This mean that we restricted the semantics to be sequential and in this specific order. However, as soon as a FSM has data in its input buffer, it can be ran; possibly concurrently with other FSMs (_e.g._, pipelined). In this section we will replace the *main()* method of our operational semantics to specify the concurrency model of our language.
 
 ### Changing the language specification from sequential to concurrent
-​:no_entry: take care to make these actions in the correct order to avoid both having both natures and corrupt the plugin configuration
+:warning: take care to make these actions in the correct order to avoid having both natures and that can corrupt the plugin configuration.
+
 The first step consists in changing the nature of the language project from sequential to concurrent:
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Remove Sequential xDSML Project Nature'
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
