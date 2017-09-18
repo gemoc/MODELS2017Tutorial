@@ -188,8 +188,7 @@ A pop-up will open and ask you to configure the project:
 At this point it creates the new project and complete the *melange* file with the location of the so called ECL file (For Event Constraint Language). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
 
 
-​:no_entry: if you experimented problems with the previous steps, you can import the projects in this archive into your workspace:
-**TODO**
+​:no_entry: if you experimented problems with the previous steps, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_concurrentNoDSE/languageWB_concurrentNoDSE.zip) into your workspace.
 
 ### Modification of the ECL file
 
