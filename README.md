@@ -90,7 +90,7 @@ We left two methods unimplemented with "TODO". Try to implement these two method
 
 _SOLUTION WILL APPEAR HERE_
 
-
+<!--
 ```java
     @Aspect(className=State)
     class StateAspect {
@@ -118,7 +118,8 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
-
+-->
+<!--
 
 ```java
     @Aspect(className=Transition)
@@ -133,6 +134,7 @@ _SOLUTION WILL APPEAR HERE_
 	}
     }
 ```
+-->
 
 After finishing, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
