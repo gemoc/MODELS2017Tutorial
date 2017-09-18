@@ -289,7 +289,7 @@ As you can see from the second invariants we defined, it can be tricky, if you d
 
 For instance, you can download [this project](TODO) from the repo and import it into your language workbench. In this project, we defined the follogin automata
  
-![](figs/concurrency_MoCCMLautomata.png)
+![](figs/concurrency_MoCCMLautomatapng.png)
  
 ## Part 4. Wrap-up and discussion
 
