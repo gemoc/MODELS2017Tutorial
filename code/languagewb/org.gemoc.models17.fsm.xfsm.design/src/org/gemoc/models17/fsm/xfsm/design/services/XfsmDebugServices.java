@@ -18,7 +18,6 @@ public class XfsmDebugServices extends AbstractGemocDebuggerServices {
 	
 	@Override
 	public String getModelIdentifier() {
-		return "my executable FSM for Models 2017 !";
-		//org.gemoc.execution.sequential.javaengine.ui.Activator.DEBUG_MODEL_ID
+		return org.gemoc.execution.sequential.javaengine.ui.Activator.DEBUG_MODEL_ID;
 	}
 }
