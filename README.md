@@ -155,7 +155,7 @@ Now, you should be able to run and debug your language according to your desired
 
 :no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_DSAOK_allgenerated), if you had any problems with recreating the new semantics or experimented too much, please download it, clear your language workbench workspace and import the projects in the archive. Then run the modeling workbench on top of these projects.
 
-If you have time, you can experiment how the language designer or a debugger can augment the animation of the model with new information. For instance, something easy to do is to add a new representation in the _Animation_ layer of the provided odesign file (project org.gemoc.models17.fsm.xfsm.design/description/xfsm.odesign) to show the string which has been consummed by each fsm. If you are too impatient and are looking for the resulting file, we provide it here:    
+If you have time, you can experiment how the language designer or a debugger can augment the animation of the model with new information. For instance, something easy to do is to add a new representation in the _Animation_ layer of the provided odesign file (project org.gemoc.models17.fsm.xfsm.design/description/xfsm.odesign) to show the string which has been consummed by each fsm. If you are too impatient and are looking for the resulting file, we provide it [here](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/newAnimationRepresentation/xfsm.odesign)   
 
 ## Part 3. Complementing your finite state machine language with a formal concurrency model
 ### Introduction
