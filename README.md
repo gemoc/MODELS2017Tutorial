@@ -149,7 +149,7 @@ goto 2.2 and see the differences ;)
 
 Now, you should be able to run and debug your language according to your desired semantics. Here is a screenshot of a classical debugging session.
 
-![](figs/23-debug-configuration.png)
+![](figs/23-classicalDebugView.png)
 
 :bulb: you can also add breakpoints on State (right click on a State -> gemoc -> toggle breakpoint). Then you can run until an execution function is called on the state !
 
