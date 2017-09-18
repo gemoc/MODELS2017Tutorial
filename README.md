@@ -90,9 +90,49 @@ We left two methods unimplemented with "TODO". Try to implement these two method
 
 _SOLUTION WILL APPEAR HERE_
 
-<!--
-TODO
--->
+
+```java
+    @Aspect(className=State)
+    class StateAspect {
+	@Step
+	def public void step(String inputString) {
+		// Get the valid transitions	
+		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
+		
+		if(validTransitions.empty) {
+			//just copy the token to the output buffer
+			_self.fsm.outputBuffer.enqueue(inputString)
+		}
+		
+		if(validTransitions.size > 1) {
+			throw new Exception("Non Determinism")
+		}
+		
+		// Fire transition first transition (could be random%VT.size)
+		if(validTransitions.size > 0){
+			validTransitions.get(0).fire
+			return
+		}
+		return
+		
+	}
+    }
+```
+
+
+```java
+    @Aspect(className=Transition)
+    class TransitionAspect {
+    	@Step
+	def public void fire() {
+		println("Firing " + _self.name + " and entering " + _self.tgt.name)
+		val fsm = _self.src.fsm
+		fsm.currentState = _self.tgt
+		fsm.outputBuffer.enqueue(_self.action)
+		fsm.consummedString = fsm.consummedString + fsm.underProcessTrigger
+	}
+    }
+```
 
 After finishing, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
 
