@@ -46,7 +46,7 @@ class SystemAspect {
 	   				}
 	   			}
 			}  catch (Exception nt){
-				println("Stopped due to "+nt.message)
+				println("Warning due to "+nt.message)
 			}
 		}
 
@@ -61,7 +61,6 @@ class FSMAspect {
 	
 	public String underProcessTrigger
 	public String consummedString
-	public String producedString 
 	
 	
 	def public void initializeFSM(){
@@ -69,25 +68,13 @@ class FSMAspect {
 		_self.currentState = _self.initialState;
 		_self.underProcessTrigger = ""
 		_self.consummedString = ""
-		_self.producedString = ""
 	}
 	
 	@Step
     def public void run() {
-    	if (_self.inputBuffer.isEmpty){
-    		println(_self.name + "ran erroneously with empty buffer ! :-/")
-    		return
-    	}
     	_self.underProcessTrigger = _self.inputBuffer.dequeue
-    	
     	println("run SM"+_self.name+" step on "+_self.underProcessTrigger)
-    	try{	
-   			_self.currentState.step(_self.underProcessTrigger)
-		} catch (Exception nt){
-			println("Stopped due to "+nt.message)
-		}
-
-    	_self.producedString = ""
+		_self.currentState.step(_self.underProcessTrigger)
     	_self.underProcessTrigger = ""
 	}
 
@@ -97,25 +84,25 @@ class FSMAspect {
 class StateAspect {
 	@Step
 	def public void step(String inputString) {
-		// Get the valid transitions	
-		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
-		if(validTransitions.empty) {
-			//just copy the token to the output buffer
-			_self.fsm.outputBuffer.enqueue(inputString)
-		}
-		if(validTransitions.size > 1) {
-			//throw new NonDeterminism()
-			throw new Exception("Non Determinism")
-		}
-		// Fire transition
-		if(validTransitions.size > 0){
-			validTransitions.get(0).fire
-			return
-		}
-		return
+	
+		//TODO :)
 		
 	}
 }
+
+
+@Aspect(className=Transition)
+class TransitionAspect {
+	@Step
+	def public void fire() {
+	
+		// TODO :)
+	
+	}
+}
+
+
+
 
 @Aspect(className=Buffer)
 class BufferAspect {
@@ -157,21 +144,6 @@ class BufferAspect {
 	}
 
 }
-
-@Aspect(className=Transition)
-class TransitionAspect {
-	@Step
-	def public void fire() {
-		println("Firing " + _self.name + " and entering " + _self.tgt.name)
-		val fsm = _self.src.fsm
-		fsm.currentState = _self.tgt
-		fsm.producedString = _self.action
-		fsm.consummedString = fsm.consummedString + fsm.underProcessTrigger
-		fsm.outputBuffer.enqueue(fsm.producedString)
-	}
-}
-
-
 
 
 
