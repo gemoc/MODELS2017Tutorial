@@ -1,0 +1,12 @@
+package org.gemoc.models17.fsm
+
+language XFSM {
+	syntax "platform:/resource/org.gemoc.models17.fsm.model/model/model.ecore"
+	with org.gemoc.models17.fsm.semantics.model.aspects.SystemAspect
+	with org.gemoc.models17.fsm.semantics.model.aspects.BufferAspect
+	with org.gemoc.models17.fsm.semantics.model.aspects.FSMAspect
+	with org.gemoc.models17.fsm.semantics.model.aspects.StateAspect
+	with org.gemoc.models17.fsm.semantics.model.aspects.TransitionAspect
+	
+	ecl "/org.gemoc.models17.fsm.dse/ecl/XFSM.ecl"
+}
