@@ -1,4 +1,4 @@
-# Tutorial "Language Engineering with The GEMOC Studio", MODELS, Sep. 2017
+# Tutorial "Language Engineering with The GEMOC Studio", MODELS, 2017
 
 * [Scope](#scope)
 * [Program](#program)
