@@ -32,9 +32,6 @@
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="XFSMMT.ecore#//FSM/consummedString"/>
       </genFeatures>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="XFSMMT.ecore#//FSM/producedString"/>
-      </genFeatures>
       <genOperations>
         <ecoreOperation href="XFSMMT.ecore#//FSM/initializeFSM"/>
       </genOperations>
