@@ -210,9 +210,6 @@ note that the function to call is optional (if no action must be called when the
 
 **TODO:** According to the remark considering the previously defined *main* function, try to define the appropriate DSE for the tutorial
 
-
-_SOLUTION WILL APPEAR HERE_
-
 > **context** FSM  
 >&nbsp;&nbsp;&nbsp;&nbsp; **def** : runIt : **Event**  = self.run()  
 
@@ -259,18 +256,16 @@ The syntax is making use of OCL invariants and the syntax is the following:
 
 :bulb: At any time, after saving your ECL file, you can relaunch you model debug to test the new concurrency model (without the need to restart the modeling workbench
 
-_SOLUTION WILL APPEAR HERE_
-
-> **context** Buffer:  
->&nbsp;&nbsp; **inv** : WriteBufferReadNoInitialValue:   
->&nbsp;&nbsp; (self.initialValue.size() = null **or** self.initialValue->size() = 0) **implies**  
+> **context** Buffer  
+>&nbsp;&nbsp; **inv**  WriteBufferReadNoInitialValue:   
+>&nbsp;&nbsp; (self.initialValue = null **or** self.initialValue.size() = 0) **implies**  
 >&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
 
->&nbsp;&nbsp; **inv** : WriteBufferReadWithInitialValue:  
+>&nbsp;&nbsp; **inv** WriteBufferReadWithInitialValue:  
 >&nbsp;&nbsp; (self.initialValue.size() > 0) **implies**  
 >&nbsp;&nbsp;&nbsp;&nbsp;**let** initialSize : **Integer** = self.initialValue.tokenize(',')->size().oclAsType(Integer) **in**  
 >&nbsp;&nbsp;&nbsp;&nbsp;**let** allReadsButInitialOnes : **Event** = **Expression** DelayFor(self.outgoingFSM.runIt, self.outgoingFSM.runIt, initialSize) **in**  
->&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, self.outgoingFSM.runIt)  
+>&nbsp;&nbsp;&nbsp;&nbsp; **Relation** Precedes(self.incomingFSM.runIt, allReadsButInitialOnes)  
 
 
 ​:no_entry: if you do not want to copy/paste the previous solutions, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/blob/master/code/incrementalSolutions/languageWB_concurrentDSEOK/languageWB_concurrentDSEOK.zip) into your workspace.
