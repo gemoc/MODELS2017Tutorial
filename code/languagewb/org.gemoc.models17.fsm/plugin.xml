@@ -4,4 +4,7 @@
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
     <XDSML_Definition name="org.gemoc.models17.fsm.Fsm" xdsmlFilePath="platform:/plugin/org.gemoc.models17.fsm/src/org/gemoc/models17/fsm/Fsm.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
   </extension>
+  <extension point="org.eclipse.gemoc.gemoc_language_workbench.concurrent.xdsml">
+    <XDSML_Definition name="org.gemoc.models17.fsm.Fsm" xdsmlFilePath="/org.gemoc.models17.fsm/src/org/gemoc/models17/fsm/Fsm.dsl" codeExecutor_class="fsm.xdsml.api.impl.FsmCodeExecutor" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" solver_class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver" toCCSLQVTOFilePath="/org.gemoc.models17.dse/qvto-gen/modeling/models17.qvto" />
+  </extension>
 </plugin>
