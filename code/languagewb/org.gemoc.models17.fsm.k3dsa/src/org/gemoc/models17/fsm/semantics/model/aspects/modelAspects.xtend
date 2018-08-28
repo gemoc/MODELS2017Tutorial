@@ -86,7 +86,24 @@ class FSMAspect {
 class StateAspect {
 	@Step
 	def public void step(String inputString) {
-		//TODO
+		// Get the valid transitions	
+		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
+		
+		if(validTransitions.empty) {
+			//just copy the token to the output buffer
+			_self.fsm.outputBuffer.enqueue(inputString)
+		}
+		
+		if(validTransitions.size > 1) {
+			throw new Exception("Non Determinism")
+		}
+		
+		// Fire transition first transition (could be random%VT.size)
+		if(validTransitions.size > 0){
+			validTransitions.get(0).fire
+			return
+		}
+		return
 		
 	}
 }
@@ -96,7 +113,11 @@ class StateAspect {
 class TransitionAspect {
 	@Step
 def public void fire() {
-		//TODO
+		println("Firing " + _self.name + " and entering " + _self.tgt.name)
+		val fsm = _self.src.fsm
+		fsm.currentState = _self.tgt
+		fsm.outputBuffer.enqueue(_self.action)
+		fsm.consummedString = fsm.consummedString + fsm.underProcessTrigger
 	}
 }
 
@@ -110,7 +131,7 @@ class BufferAspect {
 	
 	public def void initialize(){
 		println("[INITIALIZE] Buffer "+_self.name)
-			if(_self.initialValue !== null){
+			if(_self.initialValue != null){
 				_self.currentValues = _self.initialValue 
 			}else{
 				_self.currentValues = "\'empty\'"

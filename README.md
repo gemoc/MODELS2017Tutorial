@@ -162,7 +162,7 @@ If you have a careful look at the given semantics, you can see that the call to 
 ### Changing the language specification from sequential to concurrent
 :warning: take care to make these actions in the correct order to avoid having both natures and that can corrupt the plugin configuration.
 
-The first step consists in changing the nature of the language project from sequential to concurrent:
+The first step consists in adding the concurrent nature to the language project:
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
 
 Behind the scene, the GEMOC studio is creating new artifacts and dependencies to deal with the concurrent execution engine. 
@@ -170,7 +170,7 @@ Behind the scene, the GEMOC studio is creating new artifacts and dependencies to
 ### Creation of the DSE and MoCCML mapping project
 The second step consists in using the wizards to create a project dedicated to the specification of Domain Specific Events (DSE) and the way they are constrained each other.
 
-- right click on any project, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
+- right click on any project, choose new -> Project -> GEMOC language -> GEMOC Specific Language Frangments -> DSE project 
 
 A pop-up will open and ask you to configure the project:
 - Choose the language to be equipped by a concurrent specification (you should have only one, XFSM)
@@ -180,7 +180,8 @@ A pop-up will open and ask you to configure the project:
 	- Choose the root of the language (i.e., Model::System') in the second field by browsing.
 	- Choose the name of the file in which DSE and MoCCML mapping will be specified in the third field (e.g., xFSM)
 
-At this point it creates the new project, you should complete the *.dsl* file and add ` ecl = *the location of the so called ECL file*' (For Event Constraint Language) (e.g., ecl = /org.gemoc.model17.fsm.dse/ecl/xFSM.ecl). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
+At this point it creates the new project, you should complete the *.dsl* file and add ` ecl = *the location of the so called ECL file*' (For Event Constraint Language) 
+(e.g., ecl = /org.gemoc.model17.fsm.dse/ecl/xFSM.ecl). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
 
 
 ​:no_entry: if you experimented problems with the previous steps, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_concurrentNoDSE/languageWB_concurrentNoDSE.zip) into your workspace.
@@ -200,13 +201,15 @@ It is now time to wonder what are the actions (DSA) we want to control with the 
 
 The syntax is the following:
 
-> **context** _YouMetaClass_  
+> **context** _YourMetaClass_  
 >&nbsp;&nbsp;&nbsp;&nbsp; **def** : _theDSEName_ : **Event** = self._theFuntionToCall()_
 
 note that the function to call is optional (if no action must be called when the event occurs). 
 
 
 **TODO:** According to the remark considering the previously defined *main* function, try to define the appropriate DSE for the tutorial
+
+_SOLUTION WILL APPEAR HERE_
 
 > **context** FSM  
 >&nbsp;&nbsp;&nbsp;&nbsp; **def** : runIt : **Event**  = self.run()  
@@ -254,6 +257,8 @@ The syntax is making use of OCL invariants and the syntax is the following:
 
 :bulb: At any time, after saving your ECL file, you can relaunch you model debug to test the new concurrency model (without the need to restart the modeling workbench
 
+_SOLUTION WILL APPEAR HERE_
+
 > **context** Buffer  
 >&nbsp;&nbsp; **inv**  WriteBufferReadNoInitialValue:   
 >&nbsp;&nbsp; (self.initialValue = null **or** self.initialValue.size() = 0) **implies**  
@@ -290,7 +295,6 @@ For instance, you can download [this project](https://github.com/gemoc/MODELS201
 **TODO:** try to use this automata in the ECL file and test it in the modeling workbench. If you wish, you can also try to add a maximum size to the buffers :)
 
 _SOLUTION WILL APPEAR HERE_
-
 
 ![](figs/concurrency_solutionwithMoCCMLAutomata.png)
 
