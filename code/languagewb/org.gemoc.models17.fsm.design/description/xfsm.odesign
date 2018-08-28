@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="xfsm" version="12.0.0.2017041100">
+  <ownedViewpoints name="XFSM">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SystemDiagram" initialisation="true" showOnStartup="true" domainClass="model.System" enablePopupBars="true">
+      <metamodel href="../../org.gemoc.models17.fsm.model/model/model.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Buffer" domainClass="Buffer">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:initialValue" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="EventTransition" sourceMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']" targetMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']" targetFinderExpression="[self.tgt/]" sourceFinderExpression="[self.src/]" domainClass="Transition" useDomainElement="true">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[self.trigger+'/'+self.action/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="inputDependencies" sourceMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']" targetMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']" targetFinderExpression="[self.outputBuffer/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="outputDependencies" sourceMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']" targetMapping="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']" targetFinderExpression="[self.inputBuffer/]">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="FSM" domainClass="FSM">
+          <subNodeMappings name="State" semanticCandidatesExpression="[self.ownedStates/]" domainClass="State">
+            <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+            <conditionnalStyles predicateExpression="[self.eContainer().oclAsType(FSM).initialState = self/]">
+              <style xsi:type="style:EllipseNodeDescription" borderSizeComputationExpression="3" showIcon="false" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>underline</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="FSM">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Transition" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='EventTransition']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Transition" referenceName="ownedTransitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name+'_to_'+target.name"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="src" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="tgt" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="trigger" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="action" valueExpression="aql:''"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="FSM" containerMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="FSM" referenceName="ownedFsms">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['fsm'+container.oclAsType(System).ownedFsms->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="State" nodeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="model.State" referenceName="ownedStates">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['S'+container.ownedStates->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Buffer" nodeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="model.Buffer" referenceName="ownedBuffers">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['buffer'+container.oclAsType(System).ownedBuffers->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateInputDep" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='inputDependencies']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="inputBuffer" valueExpression="[target/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CreateOutputDep" edgeMappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='outputDependencies']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="outputBuffer" valueExpression="[target/]"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="edit">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editName" inputLabelExpression="&lt;%name%>">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Debug" activeByDefault="true">
+        <toolSections name="Debug">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Gemoc">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.gemocDebugAs"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Toggle breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Toggle conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Toggle Gemoc conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleConditionalBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" mappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='EventTransition'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='inputDependencies'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='outputDependencies'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" mappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='EventTransition'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='inputDependencies'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='outputDependencies'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM'] //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='SystemDiagram%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='SystemDiagram%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='SystemDiagram%20Palette']/@entries[name='current%20instruction']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+      <additionalLayers name="Animation">
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" position="SOUTH_EAST" preconditionExpression="[self.oclIsTypeOf(State) and self.oclAsType(State).fsm.getCurrentState() = self.toString()/]" imageExpression="/org.gemoc.models17.fsm.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" attributeName="labelExpression" value="[self.oclAsType(Buffer).getCurrentValues()/]"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" attributeName="labelSize" value="[12/]"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@nodeMappings[name='Buffer']/@style" referenceName="color">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(State) and self.oclAsType(State).fsm.getCurrentState() = self/]">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']/@conditionnalStyles.0/@style //@ownedViewpoints[name='XFSM']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='FSM']/@subNodeMappings[name='State']/@style" referenceName="color">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.design.services.XfsmAnimatorServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.design.services.XfsmDebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.models17.fsm.design.services.K3RuntimeDataHelper"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="XFSM Palette">
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="47" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="210" blue="210" name="hasBeenAnimated"/>
+  </userColorsPalettes>
+  <userColorsPalettes name="SystemDiagram Palette">
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>
+  </userColorsPalettes>
+</description:Group>

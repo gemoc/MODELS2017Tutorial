@@ -172,4 +172,12 @@ public interface FSM extends EObject {
 	 */
 	void setInitialState(State value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void run();
+
 } // FSM

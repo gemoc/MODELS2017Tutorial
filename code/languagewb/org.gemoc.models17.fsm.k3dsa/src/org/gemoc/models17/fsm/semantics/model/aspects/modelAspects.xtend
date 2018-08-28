@@ -16,6 +16,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import org.eclipse.emf.common.util.EList
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 
 @Aspect(className=System)
 class SystemAspect {
@@ -23,14 +24,14 @@ class SystemAspect {
 	@Step
 	@InitializeModel
 	def public void initialize(EList<String> p){
-		println("init")
+		println("[INIT] Started")
 		for(FSM sm : _self.ownedFsms){
 			sm.initializeFSM()
 		}
 		for(Buffer b : _self.ownedBuffers){
 			b.initialize();
 		}
-		println("finish init")
+		println("[INIT] Completed")
 	}
 	
 	@Main
@@ -49,7 +50,7 @@ class SystemAspect {
 				println("Warning due to "+nt.message)
 			}
 		}
-
+	println('no more FSM to run')
 	}
 
 }
@@ -71,6 +72,7 @@ class FSMAspect {
 	}
 	
 	@Step
+	@ReplaceAspectMethod
     def public void run() {
     	_self.underProcessTrigger = _self.inputBuffer.dequeue
     	println("run SM"+_self.name+" step on "+_self.underProcessTrigger)
@@ -84,24 +86,7 @@ class FSMAspect {
 class StateAspect {
 	@Step
 	def public void step(String inputString) {
-		// Get the valid transitions	
-		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
-		
-		if(validTransitions.empty) {
-			//just copy the token to the output buffer
-			_self.fsm.outputBuffer.enqueue(inputString)
-		}
-		
-		if(validTransitions.size > 1) {
-			throw new Exception("Non Determinism")
-		}
-		
-		// Fire transition first transition (could be random%VT.size)
-		if(validTransitions.size > 0){
-			validTransitions.get(0).fire
-			return
-		}
-		return
+		//TODO
 		
 	}
 }
@@ -111,11 +96,7 @@ class StateAspect {
 class TransitionAspect {
 	@Step
 def public void fire() {
-		println("Firing " + _self.name + " and entering " + _self.tgt.name)
-		val fsm = _self.src.fsm
-		fsm.currentState = _self.tgt
-		fsm.outputBuffer.enqueue(_self.action)
-		fsm.consummedString = fsm.consummedString + fsm.underProcessTrigger
+		//TODO
 	}
 }
 
@@ -125,11 +106,11 @@ def public void fire() {
 @Aspect(className=Buffer)
 class BufferAspect {
 	
-	public String currentValues //values are separated by comma
+	public String currentValues = "" //values are separated by comma
 	
 	public def void initialize(){
-		println("initialize buffer "+_self.name)
-			if(_self.initialValue != null){
+		println("[INITIALIZE] Buffer "+_self.name)
+			if(_self.initialValue !== null){
 				_self.currentValues = _self.initialValue 
 			}else{
 				_self.currentValues = "\'empty\'"

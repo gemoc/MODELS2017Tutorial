@@ -10,6 +10,7 @@ import model.Transition;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -179,6 +180,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getFSM_InitialState() {
 		return (EReference)fsmEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFSM__Run() {
+		return fsmEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -396,6 +406,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(fsmEClass, FSM__INPUT_BUFFER);
 		createEReference(fsmEClass, FSM__OUTPUT_BUFFER);
 		createEReference(fsmEClass, FSM__INITIAL_STATE);
+		createEOperation(fsmEClass, FSM___RUN);
 
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__INCOMING);
@@ -459,6 +470,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getFSM_InputBuffer(), this.getBuffer(), this.getBuffer_OutgoingFSM(), "inputBuffer", null, 0, 1, model.FSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFSM_OutputBuffer(), this.getBuffer(), this.getBuffer_IncomingFSM(), "outputBuffer", null, 0, 1, model.FSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFSM_InitialState(), this.getState(), null, "initialState", null, 0, 1, model.FSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getFSM__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getState_Incoming(), this.getTransition(), this.getTransition_Tgt(), "incoming", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

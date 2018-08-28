@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.gemoc.models17.fsm.model:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.gemoc.models17.fsm.model="http://org.gemoc.models17.fsm.xfsm/model/">
+<org.gemoc.models17.fsm.model:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.gemoc.models17.fsm.model="http://www.gemoc.org/fsm">
   <ownedFsms name="fsm1" inputBuffer="//@ownedBuffers.3" outputBuffer="//@ownedBuffers.1" initialState="//@ownedFsms.0/@ownedStates.0">
     <ownedStates incoming="//@ownedFsms.0/@ownedTransitions.1" name="s1" outgoing="//@ownedFsms.0/@ownedTransitions.0"/>
     <ownedStates incoming="//@ownedFsms.0/@ownedTransitions.0" name="s2" outgoing="//@ownedFsms.0/@ownedTransitions.1"/>

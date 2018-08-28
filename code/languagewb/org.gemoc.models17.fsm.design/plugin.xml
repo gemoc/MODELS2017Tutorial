@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.gemoc.models17.fsm.design.Activator"
+               id="org.gemoc.models17.fsm.design"
+	       name="xfsm">
+    </component>
+  </extension>
+</plugin>

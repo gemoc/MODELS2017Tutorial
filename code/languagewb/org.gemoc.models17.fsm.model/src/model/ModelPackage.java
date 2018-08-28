@@ -4,6 +4,7 @@ package model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -130,13 +131,22 @@ public interface ModelPackage extends EPackage {
 	int FSM_FEATURE_COUNT = 6;
 
 	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FSM___RUN = 0;
+
+	/**
 	 * The number of operations of the '<em>FSM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_OPERATION_COUNT = 0;
+	int FSM_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link model.impl.StateImpl <em>State</em>}' class.
@@ -472,6 +482,16 @@ public interface ModelPackage extends EPackage {
 	EReference getFSM_InitialState();
 
 	/**
+	 * Returns the meta object for the '{@link model.FSM#run() <em>Run</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run</em>' operation.
+	 * @see model.FSM#run()
+	 * @generated
+	 */
+	EOperation getFSM__Run();
+
+	/**
 	 * Returns the meta object for class '{@link model.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,6 +787,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FSM__INITIAL_STATE = eINSTANCE.getFSM_InitialState();
+
+		/**
+		 * The meta object literal for the '<em><b>Run</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FSM___RUN = eINSTANCE.getFSM__Run();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.StateImpl <em>State</em>}' class.

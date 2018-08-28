@@ -29,7 +29,8 @@ During this tutorial, the participants will extend a given finite state machine 
 
 ## Materials
 
-+ Use the latest [GEMOC Studio](http://gemoc.org/studio.html) with a [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), and clone the [tutorial's repository](https://github.com/gemoc/MODELS2017Tutorial.git).
++ Use the latest [GEMOC Studio](http://gemoc.org/studio.html) and install the concurrent engine extension, together with a [Java 1.8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), the studio with preinstalled concurrent engine can be found [HERE](https://ci.inria.fr/gemoc/job/gemoc-studio-eclipsefork/job/concurrency-coordination/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/).
++ clone the [tutorial's repository](https://github.com/gemoc/MODELS2017Tutorial.git).
 + The slides for the tutorials are available [here](https://github.com/gemoc/MODELS2017Tutorial/blob/master/slides/tutorial-slides.pptx).
 + Most of the documentation on the GEMOC approch is available [here](http://gemoc.org/gemoc-studio/publish/guide/html_single/Guide.html).
 
@@ -52,15 +53,15 @@ In this part, you will implement from-scratch a new modeling language that suppo
 
 This produces the general structure of a xDSML workspace, which comprises the projects for all the different parts of an executable DSML (projects org.gemoc.models17.fsm.*):
 
-- *org.gemoc.models17.fsm* contains the description for the FSM language into the Melange file (this project can be created from New -> Project -> GEMOC Sequential xDSML project). The Melange file is used for assembling the abstract syntax and the execution semantics in order to automatically provide the structural interface (in the form of an Ecore model combining the abstract syntax and the structural information from the execution semantics) required to use the EMF ecosystem (see org.gemoc.models17.fsm.xfsm). 
-- *org.gemoc.models17.fsm.model* contains the description of the abstract syntax for the FSM language. The abstract syntax is descriptbed using Ecore (this project can be created from New -> Project -> Ecore Modeling Project, or from a right clic on the Melange file -> GEMOC Language -> Create Domain Model Project from language)
+- *org.gemoc.models17.fsm* contains the description for the FSM language into the DSL file (this project can be created from New -> Project -> GEMOC Sequential xDSML project). The DSL file is used for assembling the abstract syntax and the execution semantics in order to automatically provide the structural interface (in the form of an Ecore model combining the abstract syntax and the structural information from the execution semantics) required to use the EMF ecosystem (see org.gemoc.models17.fsm). 
+- *org.gemoc.models17.fsm.model* contains the description of the abstract syntax for the FSM language. The abstract syntax is descriptbed using Ecore (this project can be created from New -> Project -> Ecore Modeling Project, or from a right clic on the DSL project and through the GEMOc menu)
 - *org.gemoc.models17.fsm.k3dsa* contains the Kermeta description of the execution semantics for the FSM language. The execution semantics is describes using Xtend and additional annotations provided by Kermeta to weave the semantics to the abstract syntax (note that the GEMOC studio also provide other solutions for the description of the execution semantics such as ALE, Xmof, Java...)
-- *org.gemoc.models17.fsm.xfsm.design* contains the graphical representation of both the editor and the animator. The graphical representation is defined using Sirius. 
+- *org.gemoc.models17.fsm.design* contains the graphical representation of both the editor and the animator. The graphical representation is defined using Sirius. 
 
-At this step, you must generate the following artefact: 
-- from the Melange file you must generate the structural interface of the language (right clic on the Melange file -> Melange -> Generate All). This will create the *org.gemoc.models17.fsm.xfsm* that contains the structural interface of your executable language, used for defining the animation layer with Sirius (contains in the .design project), and later in this tutorial the concurrency model. 
+<!--At this step, you must generate the following artefact: 
+- from the DSL file you must generate the structural interface of the language (right clic on the Melange file -> Melange -> Generate All). This will create the *org.gemoc.models17.fsm.xfsm* that contains the structural interface of your executable language, used for defining the animation layer with Sirius (contains in the .design project), and later in this tutorial the concurrency model. 
 - from the Melange file, you can generate the domain-specific trace backend in a project named *org.gemoc.models17.fsm.xfsm.trace* (right clic on the Melange file -> GEMOC Language -> Generate Multidimensional Trace Addon project for language) in order to support omniscient facilities in the debugger of the modeling workbench (i.e., step backward, in addition to step forward).
-- from the genmodel file of the org.gemoc.models17.fsm.xfsm project, you must generate the edition layer that will use Sirius for the editor (open the genmodel, right clic on the root -> Generate All).
+- from the genmodel file of the org.gemoc.models17.fsm.xfsm project, you must generate the edition layer that will use Sirius for the editor (open the genmodel, right clic on the root -> Generate All).-->
 
 ### 2.2 Playing with the modeling workbench
 
@@ -70,7 +71,7 @@ In the modeling workbench, you must import the example model provided for the tu
 
 ![](figs/24-modeling-workbench.png)
 
-From here, you can **right click** on the launch configuration *testSequentialExecution.launch*, **debug as** testSequentialExecution and start debugging your model. Note that for this purpose the debug view proposes to open, click yes. You have a typical eclipse debug environment with access to dynamic variables, step into, etc. Additionnaly, you have the multidimensional trace (if not open, choose _windows_ -> _show view_ -> _others_ -> multidimensional...). This last view is dedicated to your model and allos you to navigate in the trace in a multidimensional way (do not hesitate to pleasantly yell at us if you want more information)  
+From here, you can **right click** on the launch configuration *sequentialTestModel.launch*, **debug as** sequentialTestModel and start debugging your model. Note that for this purpose the debug view proposes to open, click yes. You have a typical eclipse debug environment with access to dynamic variables, step into, etc. Additionnaly, you have the multidimensional trace (if not open, choose _windows_ -> _show view_ -> _others_ -> multidimensional...). This last view is dedicated to your model and allows you to navigate in the trace in a multidimensional way (do not hesitate to pleasantly yell at us if you want more information).
 
 ### 2.3 Complementing the execution semantics
 
@@ -134,14 +135,12 @@ _SOLUTION WILL APPEAR HERE_
 ```
 
 
-After finishing or to see the effect of your code, run "generate all" on the Melange model of project org.gemoc.models17.fsm, which regenerates a new language implementation.
-
-<!--![](figs/23-melange-generate-all.png)-->
+After finishing or to see the effect of your code, just relaunch the modeling workbench (the runtime eclipse application).
 
 ### 2.4 Deploying the modeling workbench and playing with the example model
 
 goto 2.2 and see the differences ;)  
-:bulb: you can launch the modeling workbench in debug mode. If so, you do not need to restart the modeling workbench after each change in the semantics (you still need to generate all on the Melange file). Even better you can dynamically provide the new semantics during a debug of your model (at your own risks ;) )
+:bulb: you can launch the modeling workbench in debug mode. If so, you do not need to restart the modeling workbench after each change in the semantics. Even better you can dynamically provide the new semantics during a debug of your model (at your own risks ;) )
 
 
 Now, you should be able to run and debug your language according to your desired semantics. Here is a screenshot of a classical debugging session.
@@ -150,9 +149,9 @@ Now, you should be able to run and debug your language according to your desired
 
 :bulb: you can also add breakpoints on State (right click on a State -> gemoc -> toggle breakpoint). Then you can run until an execution function is called on the state !
 
-:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_DSAOK_allgenerated), if you had any problems with recreating the new semantics or experimented too much, please download it, clear your language workbench workspace and import the projects in the archive. Then run the modeling workbench on top of these projects.
+:no_entry: The solution of the previous step is available from the [solution folder](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_DSAOK), if you had any problems with recreating the new semantics or experimented too much, please download it, clear your language workbench workspace and import the projects in the archive. Then run the modeling workbench on top of these projects.
 
-If you have time, you can experiment how the language designer or a debugger can augment the animation of the model with new information. For instance, something easy to do is to add a new representation in the _Animation_ layer of the provided odesign file (project org.gemoc.models17.fsm.xfsm.design/description/xfsm.odesign) to show the string which has been consummed by each fsm. If you are too impatient and are looking for the resulting file, we provide it [here](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/newAnimationRepresentation/xfsm.odesign)   
+<!--If you have time, you can experiment how the language designer or a debugger can augment the animation of the model with new information. For instance, something easy to do is to add a new representation in the _Animation_ layer of the provided odesign file (project org.gemoc.models17.fsm.xfsm.design/description/xfsm.odesign) to show the string which has been consummed by each fsm. If you are too impatient and are looking for the resulting file, we provide it [here](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/newAnimationRepresentation/xfsm.odesign)   -->
 
 ## Part 3. Weave Domain-Specific Concurrency Constraints Into Your DSL!
 ### Introduction
@@ -164,25 +163,24 @@ If you have a careful look at the given semantics, you can see that the call to 
 :warning: take care to make these actions in the correct order to avoid having both natures and that can corrupt the plugin configuration.
 
 The first step consists in changing the nature of the language project from sequential to concurrent:
-- right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Remove Sequential xDSML Project Nature'
 - right click on the *org.gemoc.models17.fsm* project, go to 'Configure' and choose 'Add Concurrent xDSML Project Nature'
 
-Behind the scene, the GEMOC studio is creating new artifacts and dependencies to deal with the concurrent execution engine. Please respect the order of the two previous actions to avoid a conflict between the two natures.
+Behind the scene, the GEMOC studio is creating new artifacts and dependencies to deal with the concurrent execution engine. 
 
 ### Creation of the DSE and MoCCML mapping project
 The second step consists in using the wizards to create a project dedicated to the specification of Domain Specific Events (DSE) and the way they are constrained each other.
 
-- right click on the fsm.melange file, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
+- right click on any project, choose 'GEMOC Language' and click on 'Create DSE project for Language' 
 
 A pop-up will open and ask you to configure the project:
 - Choose the language to be equipped by a concurrent specification (you should have only one, XFSM)
 - Choose the project name, default proposition is fine.
 - in the three fields:
-	- Choose the XFSM.ecore file by browsing in the first field.
+	- Choose the FSM.ecore file by browsing in the first field.
 	- Choose the root of the language (i.e., Model::System') in the second field by browsing.
 	- Choose the name of the file in which DSE and MoCCML mapping will be specified in the third field (e.g., xFSM)
 
-At this point it creates the new project and complete the *melange* file with the location of the so called ECL file (For Event Constraint Language). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
+At this point it creates the new project, you should complete the *.dsl* file and add ` ecl = *the location of the so called ECL file*' (For Event Constraint Language) (e.g., ecl = /org.gemoc.model17.fsm.dse/ecl/xFSM.ecl). This last file is the one we will modify now. It is based on OCL and borrow most of the syntax from it.
 
 
 ​:no_entry: if you experimented problems with the previous steps, you can import the projects in [this archive](https://github.com/gemoc/MODELS2017Tutorial/tree/master/code/incrementalSolutions/languageWB_concurrentNoDSE/languageWB_concurrentNoDSE.zip) into your workspace.
