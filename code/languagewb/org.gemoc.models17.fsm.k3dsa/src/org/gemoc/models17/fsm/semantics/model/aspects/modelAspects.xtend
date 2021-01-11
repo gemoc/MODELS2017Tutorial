@@ -23,7 +23,7 @@ class SystemAspect {
 	
 	@Step
 	@InitializeModel
-	def public void initialize(EList<String> p){
+	def void initialize(EList<String> p){
 		println("[INIT] Started")
 		for(FSM sm : _self.ownedFsms){
 			sm.initializeFSM()
@@ -35,7 +35,7 @@ class SystemAspect {
 	}
 	
 	@Main
-    def public void main() {
+    def void main() {
     	var boolean anFSMRan = true
     	while(anFSMRan){
     		anFSMRan = false
@@ -64,7 +64,7 @@ class FSMAspect {
 	public String consummedString
 	
 	
-	def public void initializeFSM(){
+	def void initializeFSM(){
 		println("init FSM")
 		_self.currentState = _self.initialState;
 		_self.underProcessTrigger = ""
@@ -73,7 +73,7 @@ class FSMAspect {
 	
 	@Step
 	@ReplaceAspectMethod
-    def public void run() {
+    def void run() {
     	_self.underProcessTrigger = _self.inputBuffer.dequeue
     	println("run SM"+_self.name+" step on "+_self.underProcessTrigger)
 		_self.currentState.step(_self.underProcessTrigger)
@@ -85,7 +85,7 @@ class FSMAspect {
 @Aspect(className=State)
 class StateAspect {
 	@Step
-	def public void step(String inputString) {
+	def void step(String inputString) {
 		// Get the valid transitions	
 		val validTransitions =  _self.outgoing.filter[t | inputString.compareTo(t.trigger) == 0]
 		
@@ -112,7 +112,7 @@ class StateAspect {
 @Aspect(className=Transition)
 class TransitionAspect {
 	@Step
-def public void fire() {
+def void fire() {
 		println("Firing " + _self.name + " and entering " + _self.tgt.name)
 		val fsm = _self.src.fsm
 		fsm.currentState = _self.tgt
@@ -129,20 +129,20 @@ class BufferAspect {
 	
 	public String currentValues = "" //values are separated by comma
 	
-	public def void initialize(){
+	def void initialize(){
 		println("[INITIALIZE] Buffer "+_self.name)
-			if(_self.initialValue != null){
+			if(_self.initialValue !== null){
 				_self.currentValues = _self.initialValue 
 			}else{
 				_self.currentValues = "\'empty\'"
 			}
 	}
 	
-	public def boolean isEmpty(){
+	def boolean isEmpty(){
 		return _self.currentValues.empty || _self.currentValues.compareTo("\'empty\'")==0
 	}
 	
-	public def void enqueue(String v){
+	def void enqueue(String v){
 		if(_self.isEmpty){
 			_self.currentValues = v
 		}else{
@@ -150,7 +150,7 @@ class BufferAspect {
 		}
 	}
 
-	public def String dequeue(){
+	def String dequeue(){
 		var String res = ""
 		var int firstComma = _self.currentValues.indexOf(',')
 		if(firstComma < 0){

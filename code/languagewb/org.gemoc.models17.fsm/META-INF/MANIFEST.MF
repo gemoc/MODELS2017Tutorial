@@ -16,7 +16,6 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  fr.inria.diverse.melange.adapters;bundle-version="0.1.0";visibility:="reexport",
  fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="0.0.0";visibility:="reexport",
  org.eclipse.gemoc.xdsmlframework.api;bundle-version="0.0.0";visibility:="reexport",
- org.eclipse.gemoc.execution.sequential.javaxdsml.api;bundle-version="0.0.0";visibility:="reexport",
  org.eclipse.gemoc.executionframework.engine;bundle-version="0.0.0";visibility:="reexport",
  org.gemoc.models17.fsm.k3dsa;bundle-version="0.0.0";visibility:="private",
  org.gemoc.models17.fsm.model;bundle-version="0.0.0";visibility:="private",
@@ -26,5 +25,5 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="0.0.0";visibility:="reexport",
  org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;bundle-version="0.0.0";visibility:="reexport"
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
